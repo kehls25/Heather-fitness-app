@@ -1,9 +1,9 @@
 {
-  "name": "Heather Fitness+ Business Auto-Adaptive",
-  "short_name": "HeatherFit+",
-  "description": "Workout app with auto-adjusted workouts, adaptive coaching, business tracking, week switching, and offline support.",
+  "name": "Heather Life Command",
+  "short_name": "LifeCmd",
+  "description": "Fitness and business dashboard with weight and running goals, adaptive plan, and business KPIs.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0f1115",
-  "theme_color": "#c084fc"
+  "background_color": "#0b0d12",
+  "theme_color": "#b388ff"
 }
