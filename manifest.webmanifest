@@ -1,7 +1,7 @@
 {
   "name": "Heather Life Command Complete",
   "short_name": "LifeCmd",
-  "description": "Complete master version with morning command, adaptive workouts, goals, business KPIs, and meals.",
+  "description": "Fixed complete master version with working tabs, morning command, adaptive workouts, goals, business KPIs, and meals.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0b0d12",
