@@ -1,7 +1,7 @@
 {
-  "name": "Heather Life Command",
+  "name": "Heather Life Command Complete",
   "short_name": "LifeCmd",
-  "description": "Morning command screen with fitness and business dashboard.",
+  "description": "Complete master version with morning command, adaptive workouts, goals, business KPIs, and meals.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0b0d12",
