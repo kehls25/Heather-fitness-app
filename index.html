@@ -1,88 +1,447 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Heather Fitness+</title>
-  <meta name="theme-color" content="#c084fc" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Heather Fitness+" />
-  <link rel="manifest" href="./manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Heather Fitness+ Business Auto-Adaptive</title>
+  <meta name="theme-color" content="#c084fc">
+  <link rel="manifest" href="./manifest.webmanifest">
   <style>
-    :root{--bg:#0f1115;--card:#191d24;--muted:#9aa4b2;--text:#f5f7fb;--accent:#c084fc;--accent2:#22c55e;--line:#2a313c;--chip:#11161d;--warn:#f59e0b}
-    *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#0b0d11,#141923 30%,#0f1115)}
-    .wrap{max-width:980px;margin:0 auto;padding:16px 16px 110px}.hero,.card{border:1px solid var(--line);background:rgba(25,29,36,.96);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.22)}
-    .hero{padding:18px 16px}.card{padding:14px}h1{font-size:1.55rem;margin:0 0 6px}h2{font-size:1.08rem;margin:0 0 10px}h3{font-size:.98rem;margin:0 0 8px}p{line-height:1.45;margin:0 0 10px}.muted{color:var(--muted)}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.chip{padding:7px 10px;border:1px solid var(--line);background:var(--chip);border-radius:999px;font-size:.84rem}.grid{display:grid;gap:14px;margin-top:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}@media (max-width:720px){.row,.row3{grid-template-columns:1fr}}
-    .note{padding:10px 12px;border-radius:14px;background:#10151d;border:1px solid var(--line)}.btn{appearance:none;border:none;background:var(--accent);color:#170d1d;font-weight:700;border-radius:12px;padding:12px 14px;font-size:.95rem}.btn.secondary{background:#243043;color:#f8fbff;border:1px solid var(--line)}.btn.green{background:var(--accent2);color:#08120b}.tabs{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:rgba(15,17,21,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);z-index:10}.tabbtn{appearance:none;border:1px solid var(--line);background:#161a22;color:#d8dee9;border-radius:14px;padding:10px 6px;font-size:.72rem;font-weight:600}.tabbtn.active{background:var(--accent);color:#140b1c;border-color:transparent}
-    .tab,.subtab{display:none}.tab.active,.subtab.active{display:block}.subtabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}.subbtn{appearance:none;border:1px solid var(--line);background:#11151c;color:#eef2ff;border-radius:999px;padding:10px 12px;font-size:.82rem;font-weight:600}.subbtn.active{background:#2a1938;border-color:#6e53a2}
-    .daybtns{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}@media (min-width:700px){.daybtns{grid-template-columns:repeat(4,1fr)}}.daybtn{border:1px solid var(--line);background:#11151c;color:#eef2ff;border-radius:14px;padding:12px;text-align:left}.daybtn.active{outline:2px solid var(--accent)}
-    label{display:block;font-size:.9rem;margin-bottom:6px;color:#dbe3ee}input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#11151b;color:var(--text);font-size:1rem}textarea{min-height:88px;resize:vertical}.stack>*+*{margin-top:10px}ul{padding-left:20px;margin:8px 0 0}li{margin:8px 0;line-height:1.4}
-    table{width:100%;border-collapse:collapse;font-size:.92rem}th,td{border-bottom:1px solid var(--line);padding:9px 6px;text-align:left}.small{font-size:.83rem}.progress{height:10px;background:#10141a;border-radius:999px;overflow:hidden;border:1px solid var(--line)}.bar{height:100%;background:linear-gradient(90deg,var(--accent),#8b5cf6)}.install-banner{margin-top:12px;padding:12px;border:1px dashed #6e53a2;border-radius:14px;background:rgba(192,132,252,.08)}canvas{width:100%;height:220px;background:#0f141b;border:1px solid var(--line);border-radius:16px}.metric-big{font-size:1.45rem;font-weight:800}.checkrow{display:flex;align-items:flex-start;gap:10px;margin:8px 0}.checkrow input{width:auto;margin-top:3px}.plyo-tag{display:inline-block;margin-left:8px;padding:4px 8px;border-radius:999px;background:#1f2a1d;border:1px solid #36553a;color:#a7f3b8;font-size:.75rem;font-weight:700}
+    :root{--bg:#0f1115;--card:#191d24;--muted:#9aa4b2;--text:#f5f7fb;--accent:#c084fc;--accent2:#22c55e;--line:#2a313c;--chip:#11161d;--warn:#f59e0b;--bad:#ef4444}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#0b0d11,#141923 30%,#0f1115)}
+    .wrap{max-width:1120px;margin:0 auto;padding:16px 16px 110px}
+    .hero,.card{border:1px solid var(--line);background:rgba(25,29,36,.96);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.22)}
+    .hero{padding:18px 16px}.card{padding:14px}
+    h1{font-size:1.55rem;margin:0 0 6px} h2{font-size:1.08rem;margin:0 0 10px} h3{font-size:.98rem;margin:0 0 8px}
+    p{line-height:1.45;margin:0 0 10px}.muted{color:var(--muted)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.chip{padding:7px 10px;border:1px solid var(--line);background:var(--chip);border-radius:999px;font-size:.84rem}
+    .grid{display:grid;gap:14px;margin-top:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.row4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    @media (max-width:840px){ .row,.row3,.row4{grid-template-columns:1fr} }
+    .note{padding:10px 12px;border-radius:14px;background:#10151d;border:1px solid var(--line)}
+    .btn{appearance:none;border:none;background:var(--accent);color:#170d1d;font-weight:700;border-radius:12px;padding:12px 14px;font-size:.95rem}
+    .btn.secondary{background:#243043;color:#f8fbff;border:1px solid var(--line)} .btn.green{background:var(--accent2);color:#08120b}
+    .tabs{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:rgba(15,17,21,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);z-index:10}
+    .tabbtn{appearance:none;border:1px solid var(--line);background:#161a22;color:#d8dee9;border-radius:14px;padding:10px 6px;font-size:.72rem;font-weight:600}.tabbtn.active{background:var(--accent);color:#140b1c;border-color:transparent}
+    .tab{display:none}.tab.active{display:block}
+    .daybtns{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}@media (min-width:700px){.daybtns{grid-template-columns:repeat(4,1fr)}}
+    .daybtn{border:1px solid var(--line);background:#11151c;color:#eef2ff;border-radius:14px;padding:12px;text-align:left}.daybtn.active{outline:2px solid var(--accent)}
+    label{display:block;font-size:.9rem;margin-bottom:6px;color:#dbe3ee}
+    input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#11151b;color:var(--text);font-size:1rem}
+    textarea{min-height:88px;resize:vertical}.stack>*+*{margin-top:10px} ul{padding-left:20px;margin:8px 0 0} li{margin:8px 0;line-height:1.4}
+    table{width:100%;border-collapse:collapse;font-size:.92rem} th,td{border-bottom:1px solid var(--line);padding:9px 6px;text-align:left}
+    .small{font-size:.83rem}.metric-big{font-size:1.45rem;font-weight:800}.install-banner{margin-top:12px;padding:12px;border:1px dashed #6e53a2;border-radius:14px;background:rgba(192,132,252,.08)}
+    .good{color:#86efac}.warn{color:#fbbf24}.bad{color:#fca5a5}
+    .status-advance{border-color:#1f6f43;background:rgba(34,197,94,.10)}
+    .status-stay{border-color:#7c5c12;background:rgba(245,158,11,.10)}
+    .status-ease{border-color:#7f1d1d;background:rgba(239,68,68,.10)}
   </style>
 </head>
 <body>
 <div class="wrap">
   <div class="hero">
-    <h1>Heather Fitness+</h1>
-    <p class="muted">Upgraded installable workout app for Weeks 3–8 with plyometrics, charts, goal dashboard, meal plan tab, pace calculator, streak tracking, and reminder helper.</p>
-    <div class="chips"><span class="chip">Week 3 start</span><span class="chip">20 lb base weights</span><span class="chip">8:00 mile target</span><span class="chip">Offline capable</span><span class="chip">Charts + dashboard</span><span class="chip">Meal tab</span></div>
-    <div class="install-banner"><div><b>Install this app:</b> use <b>Add to Home Screen</b> or <b>Install App</b> in your browser menu.</div><div class="small muted" style="margin-top:6px">Daily 4:00 AM push notifications are not fully reliable without a hosted backend, so this app includes a reminder helper and notification test instead.</div></div>
-    <div class="subtabs"><button class="subbtn active" onclick="showSubtab('focus', this)">Focus</button><button class="subbtn" onclick="showSubtab('goals', this)">Goals</button><button class="subbtn" onclick="showSubtab('reminders', this)">Reminders</button></div>
-    <div id="focus" class="subtab active"><div class="grid"><div class="card"><h2>Today’s workout</h2><div id="todayCard"></div></div></div></div>
-    <div id="goals" class="subtab"><div class="grid"><div class="row3"><div class="card"><div class="small muted">Current week</div><div id="goalWeek" class="metric-big">3</div></div><div class="card"><div class="small muted">Current run target</div><div id="runTarget" class="metric-big">6.0 mph</div></div><div class="card"><div class="small muted">Current strength target</div><div id="weightTarget" class="metric-big">20 lb</div></div></div><div class="card"><h2>Goal dashboard</h2><div class="row"><div class="note"><div class="small muted">Goal 1</div><div><b>Tighter thighs + lifted glutes</b></div><div class="small muted">Strength + plyo consistency drives this.</div></div><div class="note"><div class="small muted">Goal 2</div><div><b>8:00 mile progression</b></div><div class="small muted">Run speed rises from 6.0 to 7.5 mph.</div></div></div><div style="margin-top:12px" class="small muted">Program progress</div><div class="progress" style="margin-top:6px"><div id="progBar" class="bar" style="width:8%"></div></div><div class="small muted" style="margin-top:8px">Expected visible shift: Weeks 3–6</div></div></div></div>
-    <div id="reminders" class="subtab"><div class="grid"><div class="card"><h2>Reminder helper</h2><p class="muted">This app can request notification permission and send a quick test notification while open. For true daily 4:00 AM reminders, use your iPhone Clock app or Calendar with the same title.</p><div class="row"><button class="btn" onclick="requestNotify()">Enable notifications</button><button class="btn secondary" onclick="testNotify()">Send test notification</button></div></div><div class="card"><h2>Suggested daily reminders</h2><ul><li>4:00 AM — Wake up + morning ritual</li><li>4:30 AM — Workout or mobility block</li><li>Post-workout — Protein + small carb</li><li>Evening — Stretch + runner reset + prep tomorrow</li></ul></div></div></div>
+    <h1>Heather Fitness+ Business Auto-Adaptive</h1>
+    <p class="muted">This version auto-adjusts the displayed workouts based on your coach decision: Advance, Stay, or Ease Back.</p>
+    <div class="chips">
+      <span class="chip">Auto-adjusted workouts</span>
+      <span class="chip">Adaptive coach</span>
+      <span class="chip">Week switcher</span>
+      <span class="chip">Business tracker</span>
+      <span class="chip">No weekly re-upload needed</span>
+    </div>
+    <div class="install-banner">
+      <div><b>How it works:</b> your selected week is the base plan. Then the coach can shift the displayed workouts up or down one level automatically depending on how you're doing.</div>
+    </div>
   </div>
 
-  <div id="plan" class="tab active"><div class="grid"><div class="card"><h2>Daily plan</h2><div class="daybtns" id="dayButtons"></div></div><div class="card"><h2 id="planTitle">Monday</h2><div id="planContent"></div></div></div></div>
+  <div id="plan" class="tab active">
+    <div class="grid">
+      <div class="card">
+        <h2>Week control</h2>
+        <div class="row3">
+          <button class="btn secondary" onclick="changeWeek(-1)">◀ Previous</button>
+          <select id="weekPicker" onchange="setCurrentWeek(Number(this.value))"></select>
+          <button class="btn secondary" onclick="changeWeek(1)">Next ▶</button>
+        </div>
+        <div class="row4" style="margin-top:10px">
+          <div class="note"><div class="small muted">Selected week</div><div id="goalWeek" class="metric-big">3</div></div>
+          <div class="note"><div class="small muted">Coach suggestion</div><div id="weekSuggestion" class="metric-big" style="font-size:1.05rem">Week 3</div></div>
+          <div id="decisionBox" class="note"><div class="small muted">Decision</div><div id="coachDecision" class="metric-big" style="font-size:1.05rem">Stay</div></div>
+          <div class="note"><div class="small muted">Displayed plan week</div><div id="displayWeek" class="metric-big">3</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Coach notes</h2>
+        <div id="coachNotes" class="stack"></div>
+      </div>
+      <div class="card">
+        <h2>Daily plan</h2>
+        <div class="daybtns" id="dayButtons"></div>
+      </div>
+      <div class="card">
+        <h2 id="planTitle">Monday</h2>
+        <div id="planContent"></div>
+      </div>
+    </div>
+  </div>
 
-  <div id="progress" class="tab"><div class="grid"><div class="row"><div class="card"><h2>Measurements chart</h2><canvas id="measureChart" width="900" height="260"></canvas></div><div class="card"><h2>Mile time chart</h2><canvas id="mileChart" width="900" height="260"></canvas></div></div><div class="row"><div class="card"><h2>Streak tracker</h2><div class="row3"><div class="note"><div class="small muted">Current streak</div><div id="streakNow" class="metric-big">0</div></div><div class="note"><div class="small muted">Best streak</div><div id="streakBest" class="metric-big">0</div></div><div class="note"><div class="small muted">Completed days</div><div id="streakTotal" class="metric-big">0</div></div></div><div style="margin-top:12px" class="small muted">Mark workouts as completed in Daily check-in to build your streak.</div></div><div class="card"><h2>Fat-loss / tightening tracker</h2><div class="row3"><div class="note"><div class="small muted">Waist change</div><div id="waistDelta" class="metric-big">—</div></div><div class="note"><div class="small muted">Glute change</div><div id="gluteDelta" class="metric-big">—</div></div><div class="note"><div class="small muted">Avg thigh change</div><div id="thighDelta" class="metric-big">—</div></div></div><div class="small muted" style="margin-top:12px">Based on your first and latest measurement entries.</div></div></div></div></div>
+  <div id="progress" class="tab">
+    <div class="grid">
+      <div class="row">
+        <div class="card">
+          <h2>Fitness summary</h2>
+          <div class="row3">
+            <div class="note"><div class="small muted">Current streak</div><div id="streakNow" class="metric-big">0</div></div>
+            <div class="note"><div class="small muted">Best streak</div><div id="streakBest" class="metric-big">0</div></div>
+            <div class="note"><div class="small muted">Completed days</div><div id="streakTotal" class="metric-big">0</div></div>
+          </div>
+          <div class="row3" style="margin-top:10px">
+            <div class="note"><div class="small muted">Waist change</div><div id="waistDelta" class="metric-big">—</div></div>
+            <div class="note"><div class="small muted">Glute change</div><div id="gluteDelta" class="metric-big">—</div></div>
+            <div class="note"><div class="small muted">Avg thigh change</div><div id="thighDelta" class="metric-big">—</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Business totals</h2>
+          <div class="row4">
+            <div class="note"><div class="small muted">Calls</div><div id="bizCalls" class="metric-big">0</div></div>
+            <div class="note"><div class="small muted">Offers</div><div id="bizOffers" class="metric-big">0</div></div>
+            <div class="note"><div class="small muted">Contracts</div><div id="bizContracts" class="metric-big">0</div></div>
+            <div class="note"><div class="small muted">Solds</div><div id="bizSolds" class="metric-big">0</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <div id="tracker" class="tab"><div class="grid"><div class="card"><h2>Daily check-in</h2><div class="stack"><div class="row"><div><label>Program week</label><select id="checkWeek"></select></div><div><label>Day</label><select id="checkDay"></select></div></div><div class="row"><div><label>Energy (1–10)</label><input id="energy" type="number" min="1" max="10" /></div><div><label>Soreness (1–10)</label><input id="soreness" type="number" min="1" max="10" /></div></div><div class="row"><div><label>Steps</label><input id="steps" type="number" /></div><div><label>Water (oz)</label><input id="water" type="number" /></div></div><div class="row"><div><label>Workout completed?</label><select id="done"><option>Yes</option><option>Partial</option><option>No</option></select></div><div><label>Mood</label><input id="mood" type="text" placeholder="Focused, tired, strong..." /></div></div><div><label>Notes</label><textarea id="notes" placeholder="Breathing, legs, recovery, sleep..."></textarea></div><button class="btn green" onclick="saveCheckin()">Save check-in</button></div></div><div class="card"><h2>Saved check-ins</h2><div id="checkinList" class="stack"></div><button class="btn secondary" style="margin-top:10px" onclick="clearCheckins()">Clear all check-ins</button></div></div></div>
+  <div id="tracker" class="tab">
+    <div class="grid">
+      <div class="card">
+        <h2>Daily fitness check-in</h2>
+        <div class="stack">
+          <div class="row">
+            <div><label>Program week</label><select id="checkWeek"></select></div>
+            <div><label>Day</label><select id="checkDay"></select></div>
+          </div>
+          <div class="row">
+            <div><label>Energy (1–10)</label><input id="energy" type="number" min="1" max="10"></div>
+            <div><label>Soreness (1–10)</label><input id="soreness" type="number" min="1" max="10"></div>
+          </div>
+          <div class="row">
+            <div><label>Steps</label><input id="steps" type="number"></div>
+            <div><label>Water (oz)</label><input id="water" type="number"></div>
+          </div>
+          <div class="row">
+            <div><label>Workout completed?</label><select id="done"><option>Yes</option><option>Partial</option><option>No</option></select></div>
+            <div><label>Mood</label><input id="mood" type="text"></div>
+          </div>
+          <div><label>Notes</label><textarea id="notes"></textarea></div>
+          <button class="btn green" onclick="saveCheckin()">Save check-in</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Saved check-ins</h2>
+        <div id="checkinList" class="stack"></div>
+      </div>
+    </div>
+  </div>
 
-  <div id="nutrition" class="tab"><div class="grid"><div class="row"><div class="card"><h2>Meal plan tab</h2><p class="muted">Simple fat-loss support around your current workouts and food preferences.</p><table><thead><tr><th>Meal</th><th>Example</th></tr></thead><tbody><tr><td>Breakfast</td><td>2 eggs, potato, peppers/tomato, avocado</td></tr><tr><td>Lunch</td><td>Tuna or chicken, fruit, potatoes or crackers</td></tr><tr><td>Post-workout</td><td>Protein shake + 1/2 banana or berries</td></tr><tr><td>Dinner</td><td>Protein + veggies + moderate carb</td></tr><tr><td>Optional snack</td><td>PB fit shake, boiled eggs, fruit</td></tr></tbody></table></div><div class="card"><h2>Weekly grocery list</h2><div class="checkrow"><input type="checkbox"><div>Eggs</div></div><div class="checkrow"><input type="checkbox"><div>Chicken or tuna</div></div><div class="checkrow"><input type="checkbox"><div>Potatoes</div></div><div class="checkrow"><input type="checkbox"><div>Kale / spinach / peppers / tomatoes</div></div><div class="checkrow"><input type="checkbox"><div>Avocados</div></div><div class="checkrow"><input type="checkbox"><div>Bananas / berries / fruit</div></div><div class="checkrow"><input type="checkbox"><div>Protein powder + PB fit + almond milk</div></div></div></div><div class="row"><div class="card"><h2>Hydration + recovery</h2><ul><li>Start the day with water before food.</li><li>Aim for steady intake across the day instead of all at night.</li><li>After harder run days, pair protein with a small carb within 30 minutes.</li></ul></div><div class="card"><h2>Meal prep shortcuts</h2><ul><li>Hard boil eggs for 3 days at a time.</li><li>Batch cook chicken and potatoes.</li><li>Pre-portion smoothie ingredients in freezer bags.</li></ul></div></div></div></div>
+  <div id="business" class="tab">
+    <div class="grid">
+      <div class="row">
+        <div class="card">
+          <h2>Business activity entry</h2>
+          <div class="stack">
+            <div class="row">
+              <div><label>Week</label><select id="bizWeek"></select></div>
+              <div><label>Date / label</label><input id="bizDate" type="text" placeholder="Today"></div>
+            </div>
+            <div class="row">
+              <div><label>Calls</label><input id="calls" type="number" min="0" value="0"></div>
+              <div><label>Offers</label><input id="offers" type="number" min="0" value="0"></div>
+            </div>
+            <div class="row">
+              <div><label>Contracts</label><input id="contracts" type="number" min="0" value="0"></div>
+              <div><label>Solds</label><input id="solds" type="number" min="0" value="0"></div>
+            </div>
+            <div><label>Notes</label><textarea id="bizNotes"></textarea></div>
+            <button class="btn green" onclick="saveBiz()">Save business entry</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Business scoreboard by week</h2>
+          <div id="bizWeekTable"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Saved business entries</h2>
+        <div id="bizList" class="stack"></div>
+      </div>
+    </div>
+  </div>
 
-  <div id="metrics" class="tab"><div class="grid"><div class="row"><div class="card"><h2>Measurements</h2><div class="stack"><div class="row"><div><label>Week</label><select id="metricWeek"></select></div><div><label>Weight</label><input id="weight" type="number" step="0.1" /></div></div><div class="row"><div><label>Waist</label><input id="waist" type="number" step="0.1" /></div><div><label>Glutes</label><input id="glutes" type="number" step="0.1" /></div></div><div class="row"><div><label>Right thigh</label><input id="rthigh" type="number" step="0.1" /></div><div><label>Left thigh</label><input id="lthigh" type="number" step="0.1" /></div></div><button class="btn green" onclick="saveMetrics()">Save measurements</button></div></div><div class="card"><h2>Mile time & cardio</h2><div class="stack"><div class="row"><div><label>Week</label><select id="mileWeek"></select></div><div><label>Mile time (mm:ss)</label><input id="mileTime" type="text" placeholder="10:00" /></div></div><div class="row"><div><label>Run speed</label><input id="runSpeedInput" type="text" placeholder="6.0 mph" /></div><div><label>Interval feel</label><select id="intervalFeel"><option>Comfortable</option><option>Challenging but controlled</option><option>Hard</option></select></div></div><div><label>Notes</label><textarea id="mileNotes" placeholder="Heavy legs, breathing, incline notes..."></textarea></div><button class="btn green" onclick="saveMile()">Save cardio record</button></div></div></div><div class="row"><div class="card"><h2>Progress tables</h2><h3>Measurements</h3><div id="metricsTable"></div></div><div class="card"><h2>Mile pace calculator</h2><div class="stack"><div class="row"><div><label>Speed (mph)</label><input id="paceSpeed" type="number" step="0.1" value="6.0"></div><div><label>Result</label><input id="paceResult" type="text" readonly></div></div><button class="btn" onclick="calcPace()">Calculate pace</button><h3 style="margin-top:12px">Cardio log</h3><div id="mileTable"></div></div></div></div><div class="card"><h2>Plyometrics</h2><div class="row3"><div class="note"><b>Monday</b><div class="small muted">Squat jumps 3 x 8, skater hops 3 x 10/side</div></div><div class="note"><b>Wednesday</b><div class="small muted">Reverse lunge knee drives 3 x 8/side, speed skaters 3 x 12/side</div></div><div class="note"><b>Friday</b><div class="small muted">Step-up knee drives 3 x 10/side, calf pop hops 3 x 20 sec</div></div></div></div></div></div>
+  <div id="nutrition" class="tab">
+    <div class="grid">
+      <div class="row">
+        <div class="card"><h2>Meal plan tab</h2><ul><li>Breakfast: eggs, potato, veggies, avocado</li><li>Lunch: tuna or chicken, fruit, potatoes or crackers</li><li>Post-workout: protein shake + fruit</li><li>Dinner: protein + veggies + carb</li></ul></div>
+        <div class="card"><h2>Weekly grocery list</h2><ul><li>Eggs</li><li>Chicken or tuna</li><li>Potatoes</li><li>Kale / spinach / peppers / tomatoes</li><li>Avocados</li><li>Bananas / berries / fruit</li><li>Protein powder + PB fit + almond milk</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="metrics" class="tab">
+    <div class="grid">
+      <div class="row">
+        <div class="card">
+          <h2>Measurements</h2>
+          <div class="stack">
+            <div class="row">
+              <div><label>Week</label><select id="metricWeek"></select></div>
+              <div><label>Weight</label><input id="weight" type="number" step="0.1"></div>
+            </div>
+            <div class="row">
+              <div><label>Waist</label><input id="waist" type="number" step="0.1"></div>
+              <div><label>Glutes</label><input id="glutes" type="number" step="0.1"></div>
+            </div>
+            <div class="row">
+              <div><label>Right thigh</label><input id="rthigh" type="number" step="0.1"></div>
+              <div><label>Left thigh</label><input id="lthigh" type="number" step="0.1"></div>
+            </div>
+            <button class="btn green" onclick="saveMetrics()">Save measurements</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Mile time & cardio</h2>
+          <div class="stack">
+            <div class="row">
+              <div><label>Week</label><select id="mileWeek"></select></div>
+              <div><label>Mile time (mm:ss)</label><input id="mileTime" type="text" placeholder="10:00"></div>
+            </div>
+            <div class="row">
+              <div><label>Run speed</label><input id="runSpeedInput" type="text" placeholder="6.0 mph"></div>
+              <div><label>Interval feel</label><select id="intervalFeel"><option>Comfortable</option><option>Challenging but controlled</option><option>Hard</option></select></div>
+            </div>
+            <div><label>Notes</label><textarea id="mileNotes"></textarea></div>
+            <button class="btn green" onclick="saveMile()">Save cardio record</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card"><h2>Measurements table</h2><div id="metricsTable"></div></div>
+        <div class="card"><h2>Cardio log</h2><div id="mileTable"></div></div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="tabs"><button class="tabbtn active" onclick="showTab('plan', this)">Plan</button><button class="tabbtn" onclick="showTab('progress', this)">Progress</button><button class="tabbtn" onclick="showTab('tracker', this)">Tracker</button><button class="tabbtn" onclick="showTab('nutrition', this)">Meals</button><button class="tabbtn" onclick="showTab('metrics', this)">Metrics</button></div>
+<div class="tabs">
+  <button class="tabbtn active" onclick="showTab('plan', this)">Plan</button>
+  <button class="tabbtn" onclick="showTab('progress', this)">Progress</button>
+  <button class="tabbtn" onclick="showTab('tracker', this)">Tracker</button>
+  <button class="tabbtn" onclick="showTab('business', this)">Business</button>
+  <button class="tabbtn" onclick="showTab('nutrition', this)">Meals</button>
+  <button class="tabbtn" onclick="showTab('metrics', this)">Metrics</button>
+</div>
 
 <script>
-const plan={"Monday – Lower Body + Glutes + Core":["Warm-up: 10 squats, 10 glute bridges, 10 calf raises, 10 hip circles","Plyometrics: squat jumps – 3 x 8; lateral skater hops – 3 x 10 each side","Step-ups – 12 each leg (20 lb dumbbells)","Bulgarian split squats – 10 each leg (20 lb)","Glute bridges – 15 (bodyweight or add 20 lb)","Sumo squats – 12 reps (20 lb)","Side lunges – 10 each side (bodyweight or 15–20 lb)","Core: reverse crunch 20, bicycle crunch 20, plank 30 sec (3 rounds)","Cardio: incline walk 25 min – 4.0 mph – incline 6–8%"],"Tuesday – Intervals + Upper Body":["Intervals: 2 min walk (3.6 mph) / 2 min run (6.0 mph at 2% incline) for 45–60 minutes","Pushups – 12","Dumbbell rows – 12 reps (20 lb)","Shoulder press – 10 reps (20 lb)","Bicep curls – 12 reps (20 lb)","Tricep kickbacks – 12 reps (15–20 lb)","Core: Russian twists 20, leg raises 20, plank 30 sec (3 rounds)"],"Wednesday – Thigh Tightening + Glutes":["Plyometrics: reverse lunge to knee drive – 3 x 8 each side; speed skaters – 3 x 12 each side","Curtsy lunges – 12 each leg (20 lb optional)","Side lying inner thigh raises – 15 each leg","Wall sit – 45 sec hold","Glute kickbacks – 15 each leg","Hip thrusts or bridges – 15 (add 20 lb if possible)","Cardio: incline walk 40 min – 4.0–4.2 mph – incline 6–8%"],"Thursday – Speed Intervals + Core":["Intervals: 2 min walk (3.6 mph) / 2 min run (6.0 mph at 2% incline) for 45–60 minutes","Core: reverse crunch 20, bicycle crunch 20, toe touches 20, plank 30 sec (3 rounds)","Vacuum breathing – 5 reps (20–30 seconds each)"],"Friday – Upper Body + Glute Activation":["Plyometrics: step-up knee drives – 3 x 10 each side; calf pop hops – 3 x 20 seconds","Shoulder press – 12 reps (20 lb)","Bent over rows – 12 reps (20 lb)","Pushups – 12","Bicep curls – 12 reps (20 lb)","Tricep dips – 10","Glute bridges – 15 (add 20 lb)","Kickbacks – 15 each leg","Step-ups – 10 each leg (20 lb)","Cardio: incline walk 30 min – 4.0 mph – incline 7–9%"],"Saturday – Endurance Intervals":["Optional plyo finisher: 4 x 20 seconds quick feet or line hops","Intervals: 2 min walk (3.6 mph) / 2 min run (6.0 mph) for 60 minutes","Core: bicycle crunch 20, leg raises 20, plank 30 sec (3 rounds)","Cooldown walk 5 minutes at 3.0 mph"],"Sunday – Recovery + Mobility":["Incline walk 40 min – 4.0 mph – incline 6–8%","Stretch: hip flexor, hamstring, glute, calf (30 sec each)","Optional runner reset"]};
-const progression=[{week:3,weight:"20 lb",run:"6.0 mph",pace:"10:00"},{week:4,weight:"20–25 lb",run:"6.3 mph",pace:"9:31"},{week:5,weight:"25 lb",run:"6.7 mph",pace:"8:57"},{week:6,weight:"25–30 lb",run:"7.0 mph",pace:"8:34"},{week:7,weight:"30 lb",run:"7.3 mph",pace:"8:13"},{week:8,weight:"30–35 lb",run:"7.5 mph",pace:"8:00"}];
-function getCurrentWeek(){return Math.min(8,Math.max(3,Number(localStorage.getItem('currentWeek')||3)))}
-function setCurrentWeek(v){localStorage.setItem('currentWeek',String(v));renderAll()}
-function getArr(key){return JSON.parse(localStorage.getItem(key)||'[]')} function setArr(key,val){localStorage.setItem(key,JSON.stringify(val))}
-function currentDayName(){return ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][new Date().getDay()]}
-function mapDayToPlan(day){return Object.keys(plan).find(k=>k.startsWith(day))||Object.keys(plan)[0]}
-function showTab(id,btn){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tabbtn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');btn.classList.add('active');if(id==='progress'){drawCharts();updateStreaks();updateDeltas();}}
-function showSubtab(id,btn){document.querySelectorAll('.subtab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.subbtn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');btn.classList.add('active')}
-function renderTop(){const cw=getCurrentWeek(),p=progression.find(x=>x.week===cw);goalWeek.textContent=cw;runTarget.textContent=p.run;weightTarget.textContent=p.weight;progBar.style.width=`${Math.max(8,((cw-3)/5)*100)}%`}
-function renderToday(){const todayTitle=mapDayToPlan(currentDayName());todayCard.innerHTML=`<div class="small muted">Week ${getCurrentWeek()}</div><h3 style="margin-top:4px">${todayTitle}</h3><ul>${plan[todayTitle].map(x=>`<li>${x}</li>`).join('')}</ul><div class="row" style="margin-top:12px"><button class="btn secondary" onclick="switchToTodayPlan()">Open full day plan</button><button class="btn" onclick="advanceWeek()">Advance week</button></div>`}
-function advanceWeek(){setCurrentWeek(Math.min(8,getCurrentWeek()+1))}
-function switchToTodayPlan(){showTab('plan',document.querySelectorAll('.tabbtn')[0]);selectDay(mapDayToPlan(currentDayName()))}
-function initDayButtons(){dayButtons.innerHTML='';Object.keys(plan).forEach((day,idx)=>{const b=document.createElement('button');b.className='daybtn'+(idx===0?' active':'');b.textContent=day.split(' – ')[0];b.onclick=()=>selectDay(day,b);dayButtons.appendChild(b)});selectDay(mapDayToPlan(currentDayName()))}
-function selectDay(day,btn=null){document.querySelectorAll('.daybtn').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');else{const i=Object.keys(plan).indexOf(day);const buttons=document.querySelectorAll('.daybtn');if(buttons[i])buttons[i].classList.add('active')} planTitle.textContent=day;planContent.innerHTML=`<ul>${plan[day].map(x=>`<li>${x}</li>`).join('')}</ul>`}
-function populateSelectors(){['checkWeek','metricWeek','mileWeek'].forEach(id=>{const el=document.getElementById(id);el.innerHTML=progression.map(p=>`<option value="${p.week}" ${p.week===getCurrentWeek()?'selected':''}>Week ${p.week}</option>`).join('')});checkDay.innerHTML=Object.keys(plan).map(day=>`<option value="${day}" ${day.startsWith(currentDayName())?'selected':''}>${day.split(' – ')[0]}</option>`).join('')}
-function saveCheckin(){const item={week:checkWeek.value,day:checkDay.value,energy:energy.value,soreness:soreness.value,steps:steps.value,water:water.value,done:done.value,mood:mood.value,notes:notes.value,ts:new Date().toLocaleString()};const arr=getArr('checkins');arr.unshift(item);setArr('checkins',arr);renderCheckins();updateStreaks();alert('Check-in saved.')}
-function renderCheckins(){const arr=getArr('checkins');checkinList.innerHTML=arr.length?arr.map(x=>`<div class="note"><div><b>Week ${x.week}</b> • ${x.day.split(' – ')[0]} • ${x.done}</div><div class="small muted">${x.ts}</div><div class="small">Energy: ${x.energy||'-'} | Soreness: ${x.soreness||'-'} | Steps: ${x.steps||'-'} | Water: ${x.water||'-'} oz</div><div class="small">Mood: ${x.mood||'-'}</div><div style="margin-top:6px">${x.notes||''}</div></div>`).join(''):'<p class="muted">No check-ins yet.</p>'}
-function clearCheckins(){if(confirm('Clear all saved check-ins?')){localStorage.removeItem('checkins');renderCheckins();updateStreaks();}}
-function saveMetrics(){const item={week:Number(metricWeek.value),weight:Number(weight.value||0),waist:Number(waist.value||0),glutes:Number(glutes.value||0),rthigh:Number(rthigh.value||0),lthigh:Number(lthigh.value||0)};const arr=getArr('metrics').filter(x=>Number(x.week)!==item.week);arr.push(item);arr.sort((a,b)=>a.week-b.week);setArr('metrics',arr);renderMetricsTables();drawCharts();updateDeltas();alert('Measurements saved.')}
-function saveMile(){const item={week:Number(mileWeek.value),mileTime:mileTime.value,runSpeed:runSpeedInput.value,intervalFeel:intervalFeel.value,notes:mileNotes.value};const arr=getArr('mile').filter(x=>Number(x.week)!==item.week);arr.push(item);arr.sort((a,b)=>a.week-b.week);setArr('mile',arr);renderMetricsTables();drawCharts();alert('Cardio record saved.')}
-function renderMetricsTables(){const m=getArr('metrics');metricsTable.innerHTML=m.length?`<table><thead><tr><th>Week</th><th>Wt</th><th>Waist</th><th>R thigh</th><th>L thigh</th><th>Glutes</th></tr></thead><tbody>${m.map(x=>`<tr><td>${x.week}</td><td>${x.weight||''}</td><td>${x.waist||''}</td><td>${x.rthigh||''}</td><td>${x.lthigh||''}</td><td>${x.glutes||''}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">No measurements saved yet.</p>';const mile=getArr('mile');mileTable.innerHTML=mile.length?`<table><thead><tr><th>Week</th><th>Mile time</th><th>Run speed</th><th>Feel</th></tr></thead><tbody>${mile.map(x=>`<tr><td>${x.week}</td><td>${x.mileTime||''}</td><td>${x.runSpeed||''}</td><td>${x.intervalFeel||''}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">No cardio records saved yet.</p>'}
-function mmssToSeconds(v){if(!v||!String(v).includes(':'))return null;const parts=String(v).split(':'),m=Number(parts[0]),s=Number(parts[1]);if(Number.isNaN(m)||Number.isNaN(s))return null;return m*60+s}
-function secondsToMMSS(sec){if(sec==null||!isFinite(sec))return '';const m=Math.floor(sec/60),s=Math.round(sec%60).toString().padStart(2,'0');return `${m}:${s}`}
-function calcPace(){const mph=Number(paceSpeed.value);if(!mph||mph<=0){paceResult.value='';return}paceResult.value=secondsToMMSS(3600/mph)}
-function drawLineChart(canvasId,points,color,yFmt){const canvas=document.getElementById(canvasId),ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height;ctx.clearRect(0,0,w,h);ctx.fillStyle='#0f141b';ctx.fillRect(0,0,w,h);const m={l:50,r:16,t:16,b:32};ctx.strokeStyle='#2a313c';ctx.lineWidth=1;for(let i=0;i<5;i++){const y=m.t+i*(h-m.t-m.b)/4;ctx.beginPath();ctx.moveTo(m.l,y);ctx.lineTo(w-m.r,y);ctx.stroke()}if(points.length===0){ctx.fillStyle='#9aa4b2';ctx.font='16px sans-serif';ctx.fillText('No data yet',w/2-40,h/2);return}const xs=points.map(p=>p.x),ys=points.map(p=>p.y),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys),padY=(maxY-minY||1)*0.15,loY=minY-padY,hiY=maxY+padY;const cx=x=>m.l+((x-minX)/(maxX-minX||1))*(w-m.l-m.r),cy=y=>h-m.b-((y-loY)/(hiY-loY||1))*(h-m.t-m.b);ctx.strokeStyle=color;ctx.lineWidth=3;ctx.beginPath();points.forEach((p,i)=>{if(i===0)ctx.moveTo(cx(p.x),cy(p.y));else ctx.lineTo(cx(p.x),cy(p.y))});ctx.stroke();ctx.fillStyle=color;points.forEach(p=>{ctx.beginPath();ctx.arc(cx(p.x),cy(p.y),4,0,Math.PI*2);ctx.fill()});ctx.fillStyle='#dbe3ee';ctx.font='12px sans-serif';points.forEach(p=>ctx.fillText('W'+p.x,cx(p.x)-10,h-10));ctx.fillStyle='#9aa4b2';ctx.fillText(yFmt(maxY),8,m.t+4);ctx.fillText(yFmt(minY),8,h-m.b)}
-function drawCharts(){const m=getArr('metrics');drawLineChart('measureChart',m.filter(x=>x.waist).map(x=>({x:Number(x.week),y:Number(x.waist)})),'#c084fc',v=>v.toFixed(1));const mile=getArr('mile');drawLineChart('mileChart',mile.map(x=>({x:Number(x.week),y:mmssToSeconds(x.mileTime)})).filter(x=>x.y),'#22c55e',v=>secondsToMMSS(v))}
-function updateDeltas(){const m=getArr('metrics');if(m.length<2){['waistDelta','gluteDelta','thighDelta'].forEach(id=>document.getElementById(id).textContent='—');return}const first=m[0],last=m[m.length-1],avgF=((Number(first.rthigh||0)+Number(first.lthigh||0))/2),avgL=((Number(last.rthigh||0)+Number(last.lthigh||0))/2);const fmt=d=>(d>0?'+':'')+d.toFixed(1);waistDelta.textContent=fmt((last.waist||0)-(first.waist||0));gluteDelta.textContent=fmt((last.glutes||0)-(first.glutes||0));thighDelta.textContent=fmt(avgL-avgF)}
-function updateStreaks(){const arr=getArr('checkins'),yeses=arr.filter(x=>x.done==='Yes');streakTotal.textContent=yeses.length;const byKey={};yeses.forEach(x=>{byKey[`${x.week}-${x.day}`]=true});const ordered=[];progression.forEach(p=>Object.keys(plan).forEach(day=>ordered.push(`${p.week}-${day}`)));let best=0,current=0,run=0;ordered.forEach(key=>{if(byKey[key]){run+=1;best=Math.max(best,run)}else run=0});for(let i=ordered.length-1;i>=0;i--){if(byKey[ordered[i]])current+=1;else if(current>0)break}streakNow.textContent=current;streakBest.textContent=best}
-function requestNotify(){if(!('Notification' in window)){alert('Notifications are not supported in this browser.');return}Notification.requestPermission().then(p=>alert('Notification permission: '+p))}
-function testNotify(){if(!('Notification' in window)){alert('Notifications are not supported in this browser.');return}if(Notification.permission!=='granted'){alert('Enable notifications first.');return}new Notification('Heather Fitness+', {body:'Workout reminder: stay consistent today.', icon:'./icon-192.png'})}
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
-function renderAll(){populateSelectors();renderTop();renderToday();initDayButtons();renderCheckins();renderMetricsTables();calcPace();drawCharts();updateDeltas();updateStreaks()} renderAll();
+const progression = [
+  {week:3, weight:"20 lb", run:"6.0 mph", pace:"10:00"},
+  {week:4, weight:"20–25 lb", run:"6.3 mph", pace:"9:31"},
+  {week:5, weight:"25 lb", run:"6.7 mph", pace:"8:57"},
+  {week:6, weight:"25–30 lb", run:"7.0 mph", pace:"8:34"},
+  {week:7, weight:"30 lb", run:"7.3 mph", pace:"8:13"},
+  {week:8, weight:"30–35 lb", run:"7.5 mph", pace:"8:00"}
+];
+const planBase = {
+  "Monday – Lower Body + Glutes + Core": ["Warm-up: 10 squats, 10 glute bridges, 10 calf raises, 10 hip circles","Plyometrics: squat jumps – 3 x 8; lateral skater hops – 3 x 10 each side","Step-ups – 12 each leg","Bulgarian split squats – 10 each leg","Glute bridges – 15","Sumo squats – 12 reps","Side lunges – 10 each side","Core: reverse crunch 20, bicycle crunch 20, plank 30 sec (3 rounds)","Cardio: incline walk 25 min – 4.0 mph – incline 6–8%"],
+  "Tuesday – Intervals + Upper Body": ["Intervals: 2 min walk / 2 min run for 45–60 minutes","Pushups – 12","Dumbbell rows – 12 reps","Shoulder press – 10 reps","Bicep curls – 12 reps","Tricep kickbacks – 12 reps","Core: Russian twists 20, leg raises 20, plank 30 sec (3 rounds)"],
+  "Wednesday – Thigh Tightening + Glutes": ["Plyometrics: reverse lunge to knee drive – 3 x 8 each side; speed skaters – 3 x 12 each side","Curtsy lunges – 12 each leg","Side lying inner thigh raises – 15 each leg","Wall sit – 45 sec hold","Glute kickbacks – 15 each leg","Hip thrusts or bridges – 15","Cardio: incline walk 40 min – 4.0–4.2 mph – incline 6–8%"],
+  "Thursday – Speed Intervals + Core": ["Intervals: 2 min walk / 2 min run for 45–60 minutes","Core: reverse crunch 20, bicycle crunch 20, toe touches 20, plank 30 sec (3 rounds)","Vacuum breathing – 5 reps (20–30 seconds each)"],
+  "Friday – Upper Body + Glute Activation": ["Plyometrics: step-up knee drives – 3 x 10 each side; calf pop hops – 3 x 20 seconds","Shoulder press – 12 reps","Bent over rows – 12 reps","Pushups – 12","Bicep curls – 12 reps","Tricep dips – 10","Glute bridges – 15","Kickbacks – 15 each leg","Step-ups – 10 each leg","Cardio: incline walk 30 min – 4.0 mph – incline 7–9%"],
+  "Saturday – Endurance Intervals": ["Optional plyo finisher: 4 x 20 seconds quick feet or line hops","Intervals: 2 min walk / 2 min run for 60 minutes","Core: bicycle crunch 20, leg raises 20, plank 30 sec (3 rounds)","Cooldown walk 5 minutes at 3.0 mph"],
+  "Sunday – Recovery + Mobility": ["Incline walk 40 min – 4.0 mph – incline 6–8%","Stretch: hip flexor, hamstring, glute, calf (30 sec each)","Optional runner reset"]
+};
+
+function getCurrentWeek(){ return Math.min(8, Math.max(3, Number(localStorage.getItem("currentWeek") || 3))); }
+function setCurrentWeek(v){ localStorage.setItem("currentWeek", String(v)); renderAll(); }
+function changeWeek(delta){ setCurrentWeek(Math.min(8, Math.max(3, getCurrentWeek()+delta))); }
+function getArr(key){ return JSON.parse(localStorage.getItem(key) || "[]"); }
+function setArr(key,val){ localStorage.setItem(key, JSON.stringify(val)); }
+function currentDayName(){ return ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][new Date().getDay()]; }
+function mapDayToPlan(day){ return Object.keys(planBase).find(k => k.startsWith(day)) || Object.keys(planBase)[0]; }
+function mmssToSeconds(v){ if(!v || !String(v).includes(':')) return null; const p=String(v).split(':').map(Number); if(p.some(isNaN)) return null; return p[0]*60+p[1]; }
+
+function computeCoach(){
+  const currentWeek = getCurrentWeek();
+  const checkins = getArr("checkins").filter(x => Number(x.week) === currentWeek);
+  const complete = checkins.filter(x => x.done === 'Yes').length;
+  const partial = checkins.filter(x => x.done === 'Partial').length;
+  const avgEnergy = checkins.length ? checkins.reduce((a,b)=>a+(Number(b.energy)||0),0)/checkins.length : null;
+  const avgSoreness = checkins.length ? checkins.reduce((a,b)=>a+(Number(b.soreness)||0),0)/checkins.length : null;
+  const mileEntries = getArr("mile").filter(x => Number(x.week) <= currentWeek).sort((a,b)=>a.week-b.week);
+  const latestMile = mileEntries.length ? mmssToSeconds(mileEntries[mileEntries.length-1].mileTime) : null;
+  let decision = "Stay", suggestedWeek = currentWeek, notes = [];
+
+  if(checkins.length === 0){
+    notes.push({cls:'warn', text:'No check-ins saved for this week yet, so the coach cannot judge readiness accurately.'});
+    return {decision, suggestedWeek, notes};
+  }
+  if(complete >= 5 && (avgEnergy ?? 0) >= 7 && (avgSoreness ?? 10) <= 5){
+    decision = "Advance"; suggestedWeek = Math.min(8, currentWeek + 1);
+    notes.push({cls:'good', text:`You completed ${complete} workouts with good recovery signals.`});
+  } else if(complete <= 2 && (avgEnergy ?? 10) <= 4){
+    decision = "Ease Back"; suggestedWeek = Math.max(3, currentWeek - 1);
+    notes.push({cls:'bad', text:'Low completion and low energy suggest you need a lighter week or repeat with less push.'});
+  } else if((avgSoreness ?? 0) >= 8){
+    decision = "Ease Back"; suggestedWeek = Math.max(3, currentWeek - 1);
+    notes.push({cls:'bad', text:'Very high soreness suggests backing off intensity before progressing.'});
+  } else {
+    decision = "Stay"; suggestedWeek = currentWeek;
+    notes.push({cls:'warn', text:'You are in a build phase. Repeat this week and let performance stabilize.'});
+  }
+
+  if(latestMile){
+    if(latestMile <= 480){ suggestedWeek = 8; decision = "Advance"; notes.push({cls:'good', text:'Your latest saved mile time is at or faster than the 8:00 goal pace.'}); }
+    else if(latestMile <= 493 && currentWeek < 7){ suggestedWeek = Math.max(suggestedWeek, 7); notes.push({cls:'good', text:'Your latest mile time is tracking ahead of the base progression.'}); }
+  } else {
+    notes.push({cls:'warn', text:'No mile time saved yet. Add one to make the coaching smarter.'});
+  }
+  if(partial >= 2){ notes.push({cls:'warn', text:'Multiple partial workouts suggest holding the current week before moving up.'}); }
+  notes.push({cls:'', text:`Average energy: ${avgEnergy ? avgEnergy.toFixed(1) : '—'} / Average soreness: ${avgSoreness ? avgSoreness.toFixed(1) : '—'}`});
+  return {decision, suggestedWeek, notes};
+}
+
+function displayedWeek(){
+  const currentWeek = getCurrentWeek();
+  const coach = computeCoach();
+  if(coach.decision === "Advance") return Math.min(8, currentWeek + 1);
+  if(coach.decision === "Ease Back") return Math.max(3, currentWeek - 1);
+  return currentWeek;
+}
+
+function getWeekTargets(week){ return progression.find(p => p.week === week) || progression[0]; }
+function getPlanForDisplayedWeek(){
+  const week = displayedWeek();
+  const target = getWeekTargets(week), weightText = target.weight, runText = target.run, runIncline = week >= 6 ? "2–3% incline" : "2% incline";
+  const out = {};
+  Object.entries(planBase).forEach(([day, items]) => {
+    out[day] = items.map(item => {
+      let x = item;
+      if(x.includes("Step-ups")) x += ` (${weightText})`;
+      if(x.includes("Bulgarian split squats")) x += ` (${weightText})`;
+      if(x.includes("Dumbbell rows")) x += ` (${weightText})`;
+      if(x.includes("Shoulder press")) x += ` (${weightText})`;
+      if(x.includes("Bicep curls")) x += ` (${weightText})`;
+      if(x.includes("Bent over rows")) x += ` (${weightText})`;
+      if(x === "Glute bridges – 15") x += ` (bodyweight or add ${weightText})`;
+      if(x.startsWith("Hip thrusts")) x += ` (add ${weightText} if possible)`;
+      if(x.startsWith("Intervals: 2 min walk / 2 min run")) x = `Intervals: 2 min walk (3.6 mph) / 2 min run (${runText} at ${runIncline}) for ${day.startsWith("Saturday") ? "60" : "45–60"} minutes`;
+      return x;
+    });
+  });
+  return {week, plan: out};
+}
+
+function populateSelectors(){
+  const options = progression.map(p => `<option value="${p.week}" ${p.week===getCurrentWeek()?'selected':''}>Week ${p.week}</option>`).join('');
+  ["weekPicker","checkWeek","metricWeek","mileWeek","bizWeek"].forEach(id => { const el=document.getElementById(id); if(el) el.innerHTML=options; });
+  document.getElementById("checkDay").innerHTML = Object.keys(planBase).map(day => `<option value="${day}" ${day.startsWith(currentDayName())?'selected':''}>${day.split(" – ")[0]}</option>`).join('');
+}
+
+function initDayButtons(){
+  const wrap = document.getElementById("dayButtons"); wrap.innerHTML = "";
+  Object.keys(planBase).forEach(day => {
+    const b = document.createElement("button"); b.className="daybtn"; b.textContent=day.split(" – ")[0]; b.onclick=()=>selectDay(day,b); wrap.appendChild(b);
+  });
+  selectDay(mapDayToPlan(currentDayName()));
+}
+
+function selectDay(day, btn=null){
+  const info = getPlanForDisplayedWeek();
+  document.querySelectorAll('.daybtn').forEach(x => x.classList.remove('active'));
+  if(btn) btn.classList.add('active'); else { const i=Object.keys(planBase).indexOf(day); const bs=document.querySelectorAll('.daybtn'); if(bs[i]) bs[i].classList.add('active'); }
+  document.getElementById("planTitle").textContent = `${day} — Displaying Week ${info.week}`;
+  document.getElementById("planContent").innerHTML = `<ul>${info.plan[day].map(x => `<li>${x}</li>`).join('')}</ul>`;
+}
+
+function updateWeekSummary(){
+  const week = getCurrentWeek();
+  const coach = computeCoach();
+  document.getElementById("goalWeek").textContent = week;
+  document.getElementById("weekSuggestion").textContent = "Week " + coach.suggestedWeek;
+  document.getElementById("coachDecision").textContent = coach.decision;
+  document.getElementById("displayWeek").textContent = displayedWeek();
+  const box = document.getElementById("decisionBox");
+  box.className = "note " + (coach.decision==="Advance" ? "status-advance" : coach.decision==="Ease Back" ? "status-ease" : "status-stay");
+  document.getElementById("coachNotes").innerHTML = coach.notes.map(n => `<div class="note ${n.cls}">${n.text}</div>`).join('');
+}
+
+function saveCheckin(){
+  const item = {week:Number(checkWeek.value), day:checkDay.value, energy:energy.value, soreness:soreness.value, steps:steps.value, water:water.value, done:done.value, mood:mood.value, notes:notes.value, ts:new Date().toLocaleString()};
+  const arr = getArr("checkins"); arr.unshift(item); setArr("checkins", arr); renderCheckins(); updateStreaks(); updateWeekSummary(); selectDay(mapDayToPlan(currentDayName())); alert("Check-in saved.");
+}
+function renderCheckins(){
+  const arr = getArr("checkins");
+  document.getElementById("checkinList").innerHTML = arr.length ? arr.map(x => `<div class="note"><div><b>Week ${x.week}</b> • ${x.day.split(" – ")[0]} • ${x.done}</div><div class="small muted">${x.ts}</div><div class="small">Energy: ${x.energy||"-"} | Soreness: ${x.soreness||"-"} | Steps: ${x.steps||"-"} | Water: ${x.water||"-"} oz</div><div>${x.notes||""}</div></div>`).join('') : '<p class="muted">No check-ins yet.</p>';
+}
+
+function saveMetrics(){
+  const item = {week:Number(metricWeek.value), weight:Number(weight.value||0), waist:Number(waist.value||0), glutes:Number(glutes.value||0), rthigh:Number(rthigh.value||0), lthigh:Number(lthigh.value||0)};
+  const arr = getArr("metrics").filter(x => Number(x.week)!==item.week); arr.push(item); arr.sort((a,b)=>a.week-b.week); setArr("metrics", arr); renderMetricsTables(); updateDeltas(); alert("Measurements saved.");
+}
+function saveMile(){
+  const item = {week:Number(mileWeek.value), mileTime:mileTime.value, runSpeed:runSpeedInput.value, intervalFeel:intervalFeel.value, notes:mileNotes.value};
+  const arr = getArr("mile").filter(x => Number(x.week)!==item.week); arr.push(item); arr.sort((a,b)=>a.week-b.week); setArr("mile", arr); renderMetricsTables(); updateWeekSummary(); selectDay(mapDayToPlan(currentDayName())); alert("Cardio record saved.");
+}
+function renderMetricsTables(){
+  const m = getArr("metrics");
+  document.getElementById("metricsTable").innerHTML = m.length ? `<table><thead><tr><th>Week</th><th>Wt</th><th>Waist</th><th>R thigh</th><th>L thigh</th><th>Glutes</th></tr></thead><tbody>${m.map(x => `<tr><td>${x.week}</td><td>${x.weight||""}</td><td>${x.waist||""}</td><td>${x.rthigh||""}</td><td>${x.lthigh||""}</td><td>${x.glutes||""}</td></tr>`).join('')}</tbody></table>` : '<p class="muted">No measurements saved yet.</p>';
+  const mile = getArr("mile");
+  document.getElementById("mileTable").innerHTML = mile.length ? `<table><thead><tr><th>Week</th><th>Mile time</th><th>Run speed</th><th>Feel</th></tr></thead><tbody>${mile.map(x => `<tr><td>${x.week}</td><td>${x.mileTime||""}</td><td>${x.runSpeed||""}</td><td>${x.intervalFeel||""}</td></tr>`).join('')}</tbody></table>` : '<p class="muted">No cardio records yet.</p>';
+}
+
+function updateDeltas(){
+  const m=getArr("metrics"); if(m.length<2){ ['waistDelta','gluteDelta','thighDelta'].forEach(id=>document.getElementById(id).textContent='—'); return; }
+  const first=m[0], last=m[m.length-1], avg1=((Number(first.rthigh||0)+Number(first.lthigh||0))/2), avg2=((Number(last.rthigh||0)+Number(last.lthigh||0))/2), fmt=d=>(d>0?'+':'')+d.toFixed(1);
+  document.getElementById('waistDelta').textContent=fmt((last.waist||0)-(first.waist||0));
+  document.getElementById('gluteDelta').textContent=fmt((last.glutes||0)-(first.glutes||0));
+  document.getElementById('thighDelta').textContent=fmt(avg2-avg1);
+}
+function updateStreaks(){
+  const arr=getArr("checkins").filter(x=>x.done==='Yes'); document.getElementById('streakTotal').textContent=arr.length;
+  const keys={}; arr.forEach(x=>keys[`${x.week}-${x.day}`]=true);
+  const ordered=[]; progression.forEach(p=>Object.keys(planBase).forEach(day=>ordered.push(`${p.week}-${day}`)));
+  let best=0,run=0; ordered.forEach(k=>{ if(keys[k]){run++; best=Math.max(best,run);} else run=0; });
+  let current=0; for(let i=ordered.length-1;i>=0;i--){ if(keys[ordered[i]]) current++; else if(current>0) break; }
+  document.getElementById('streakNow').textContent=current; document.getElementById('streakBest').textContent=best;
+}
+
+function saveBiz(){
+  const item = {week:Number(bizWeek.value), date:bizDate.value||new Date().toLocaleDateString(), calls:Number(calls.value||0), offers:Number(offers.value||0), contracts:Number(contracts.value||0), solds:Number(solds.value||0), notes:bizNotes.value||""};
+  const arr=getArr("business"); arr.unshift(item); setArr("business", arr); renderBiz(); alert("Business entry saved.");
+}
+function renderBiz(){
+  const arr=getArr("business");
+  const totals=arr.reduce((a,b)=>({calls:a.calls+(b.calls||0), offers:a.offers+(b.offers||0), contracts:a.contracts+(b.contracts||0), solds:a.solds+(b.solds||0)}), {calls:0,offers:0,contracts:0,solds:0});
+  document.getElementById("bizCalls").textContent=totals.calls; document.getElementById("bizOffers").textContent=totals.offers; document.getElementById("bizContracts").textContent=totals.contracts; document.getElementById("bizSolds").textContent=totals.solds;
+  const weekMap={}; arr.forEach(x=>{ if(!weekMap[x.week]) weekMap[x.week]={calls:0,offers:0,contracts:0,solds:0}; weekMap[x.week].calls+=x.calls||0; weekMap[x.week].offers+=x.offers||0; weekMap[x.week].contracts+=x.contracts||0; weekMap[x.week].solds+=x.solds||0; });
+  const rows=progression.map(p=>{ const w=weekMap[p.week]||{calls:0,offers:0,contracts:0,solds:0}; return `<tr><td>Week ${p.week}</td><td>${w.calls}</td><td>${w.offers}</td><td>${w.contracts}</td><td>${w.solds}</td></tr>`; }).join('');
+  document.getElementById("bizWeekTable").innerHTML=`<table><thead><tr><th>Week</th><th>Calls</th><th>Offers</th><th>Contracts</th><th>Solds</th></tr></thead><tbody>${rows}</tbody></table>`;
+  document.getElementById("bizList").innerHTML=arr.length ? arr.map(x=>`<div class="note"><div><b>Week ${x.week}</b> • ${x.date}</div><div class="small">Calls: ${x.calls} | Offers: ${x.offers} | Contracts: ${x.contracts} | Solds: ${x.solds}</div><div>${x.notes||""}</div></div>`).join('') : '<p class="muted">No business entries yet.</p>';
+}
+
+function showTab(id, btn){
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tabbtn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if(id === 'progress'){ updateDeltas(); updateStreaks(); renderBiz(); }
+  if(id === 'business'){ renderBiz(); }
+}
+
+function renderAll(){ populateSelectors(); updateWeekSummary(); initDayButtons(); renderCheckins(); renderMetricsTables(); updateDeltas(); updateStreaks(); renderBiz(); }
+renderAll();
 </script>
 </body>
 </html>
