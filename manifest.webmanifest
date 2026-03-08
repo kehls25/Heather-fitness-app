@@ -1,7 +1,7 @@
 {
   "name": "Heather Life Command",
   "short_name": "LifeCmd",
-  "description": "Fitness and business dashboard with weight and running goals, adaptive plan, and business KPIs.",
+  "description": "Morning command screen with fitness and business dashboard.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0b0d12",

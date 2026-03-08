@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,185 +6,92 @@
   <title>Heather Life Command</title>
   <meta name="theme-color" content="#b388ff" />
   <style>
-    :root{
-      --bg:#0b0d12;
-      --panel:#151922;
-      --panel2:#1b2030;
-      --line:#2b3244;
-      --text:#f4f7fb;
-      --muted:#a6b0c3;
-      --accent:#b388ff;
-      --accent2:#5eead4;
-      --green:#22c55e;
-      --yellow:#f59e0b;
-      --red:#ef4444;
-      --pink:#f472b6;
-    }
+    :root{--bg:#0b0d12;--panel:#151922;--line:#2b3244;--text:#f4f7fb;--muted:#a6b0c3;--accent:#b388ff;--green:#22c55e;--pink:#f472b6}
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:linear-gradient(180deg,#090b10,#101521 35%,#0b0d12);
-      color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    }
-    .app{
-      max-width:980px;
-      margin:0 auto;
-      padding:16px 16px 100px;
-    }
-    .hero,.card{
-      background:rgba(21,25,34,.95);
-      border:1px solid var(--line);
-      border-radius:22px;
-      box-shadow:0 12px 34px rgba(0,0,0,.28);
-    }
-    .hero{padding:18px 16px}
-    .card{padding:14px}
-    h1{margin:0 0 6px;font-size:1.55rem}
-    h2{margin:0 0 10px;font-size:1.08rem}
-    h3{margin:0 0 8px;font-size:.96rem}
-    p{margin:0 0 8px;line-height:1.45}
-    .muted{color:var(--muted)}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .chip{
-      padding:7px 10px;border-radius:999px;border:1px solid var(--line);
-      background:#10141d;font-size:.82rem
-    }
-    .grid{display:grid;gap:14px;margin-top:16px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .row4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    @media (max-width:800px){.row,.row3,.row4{grid-template-columns:1fr}}
-    .metric{
-      background:linear-gradient(180deg,#171c27,#111620);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:12px;
-    }
-    .metric .label{font-size:.78rem;color:var(--muted);margin-bottom:6px}
-    .metric .value{font-size:1.4rem;font-weight:800}
-    .btn{
-      appearance:none;border:none;border-radius:14px;padding:12px 14px;
-      font-weight:700;background:var(--accent);color:#180d21
-    }
-    .btn.secondary{background:#222b3a;color:#f4f7fb;border:1px solid var(--line)}
-    .btn.green{background:var(--green);color:#071108}
-    .btn.yellow{background:var(--yellow);color:#231500}
-    .tabs{
-      position:fixed;left:0;right:0;bottom:0;z-index:20;
-      display:grid;grid-template-columns:repeat(5,1fr);gap:6px;
-      padding:10px 10px calc(10px + env(safe-area-inset-bottom));
-      background:rgba(10,12,18,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)
-    }
-    .tabbtn{
-      appearance:none;border:1px solid var(--line);background:#151a23;color:#dce5f4;
-      border-radius:14px;padding:10px 6px;font-size:.74rem;font-weight:700
-    }
-    .tabbtn.active{background:var(--accent);color:#160d22;border-color:transparent}
-    .tab{display:none}
-    .tab.active{display:block}
+    body{margin:0;background:linear-gradient(180deg,#090b10,#101521 35%,#0b0d12);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .app{max-width:1020px;margin:0 auto;padding:16px 16px 100px}
+    .hero,.card{background:rgba(21,25,34,.95);border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 34px rgba(0,0,0,.28)}
+    .hero{padding:18px 16px}.card{padding:14px}
+    h1{margin:0 0 6px;font-size:1.55rem} h2{margin:0 0 10px;font-size:1.08rem} h3{margin:0 0 8px;font-size:.96rem}
+    p{margin:0 0 8px;line-height:1.45}.muted{color:var(--muted)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.chip{padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:#10141d;font-size:.82rem}
+    .grid{display:grid;gap:14px;margin-top:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.row4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    @media (max-width:850px){.row,.row4{grid-template-columns:1fr}}
+    .metric{background:linear-gradient(180deg,#171c27,#111620);border:1px solid var(--line);border-radius:18px;padding:12px}
+    .metric .label{font-size:.78rem;color:var(--muted);margin-bottom:6px}.metric .value{font-size:1.35rem;font-weight:800}
+    .btn{appearance:none;border:none;border-radius:14px;padding:12px 14px;font-weight:700;background:var(--accent);color:#180d21}
+    .btn.secondary{background:#222b3a;color:#f4f7fb;border:1px solid var(--line)} .btn.green{background:var(--green);color:#071108}
+    .tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:rgba(10,12,18,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+    .tabbtn{appearance:none;border:1px solid var(--line);background:#151a23;color:#dce5f4;border-radius:14px;padding:10px 6px;font-size:.74rem;font-weight:700}.tabbtn.active{background:var(--accent);color:#160d22;border-color:transparent}
+    .tab{display:none}.tab.active{display:block}
     label{display:block;font-size:.88rem;color:#dde5f2;margin-bottom:6px}
-    input,select,textarea{
-      width:100%;padding:12px;border-radius:14px;border:1px solid var(--line);
-      background:#10141d;color:var(--text);font-size:1rem
-    }
-    textarea{min-height:86px;resize:vertical}
-    .stack>*+*{margin-top:10px}
-    ul{margin:8px 0 0;padding-left:20px}
-    li{margin:8px 0}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;font-size:.92rem}
-    .progress{
-      height:12px;border-radius:999px;overflow:hidden;background:#0e1219;border:1px solid var(--line)
-    }
-    .bar{height:100%}
-    .purple{background:linear-gradient(90deg,var(--accent),#8b5cf6)}
-    .greenbar{background:linear-gradient(90deg,#22c55e,#5eead4)}
-    .pinkbar{background:linear-gradient(90deg,#f472b6,#fb7185)}
+    input,select,textarea{width:100%;padding:12px;border-radius:14px;border:1px solid var(--line);background:#10141d;color:var(--text);font-size:1rem}
+    textarea{min-height:86px;resize:vertical}.stack>*+*{margin-top:10px}
+    ul{margin:8px 0 0;padding-left:20px} li{margin:8px 0}
+    table{width:100%;border-collapse:collapse} th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;font-size:.92rem}
+    .progress{height:12px;border-radius:999px;overflow:hidden;background:#0e1219;border:1px solid var(--line)} .bar{height:100%}
+    .greenbar{background:linear-gradient(90deg,#22c55e,#5eead4)} .pinkbar{background:linear-gradient(90deg,#f472b6,#fb7185)}
     .section-title{display:flex;justify-content:space-between;align-items:center;gap:10px}
-    canvas{
-      width:100%;height:230px;background:#0f141b;border:1px solid var(--line);border-radius:18px
-    }
-    .day-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-    @media (min-width:700px){.day-grid{grid-template-columns:repeat(4,1fr)}}
-    .daybtn{
-      border:1px solid var(--line);background:#10141d;color:#eef2ff;border-radius:14px;padding:12px;text-align:left
-    }
-    .daybtn.active{outline:2px solid var(--accent)}
-    .good{color:#86efac}.warn{color:#fcd34d}.bad{color:#fca5a5}
-    .tiny{font-size:.78rem}
+    canvas{width:100%;height:230px;background:#0f141b;border:1px solid var(--line);border-radius:18px}
+    .day-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}@media (min-width:700px){.day-grid{grid-template-columns:repeat(4,1fr)}}
+    .daybtn{border:1px solid var(--line);background:#10141d;color:#eef2ff;border-radius:14px;padding:12px;text-align:left}.daybtn.active{outline:2px solid var(--accent)}
+    .tiny{font-size:.78rem}.morning{background:linear-gradient(180deg,#1a1730,#121827);border:1px solid #4c3a7a}.scripture{font-style:italic;color:#efe7ff;line-height:1.5}
   </style>
 </head>
 <body>
 <div class="app">
   <div class="hero">
     <h1>Heather Life Command</h1>
-    <p class="muted">Your all-in-one fitness + business dashboard with weekly progression, running goals, weight goals, business KPIs, and a daily command center.</p>
+    <p class="muted">Now with a 4AM Morning Command Screen: today’s workout, calls to make, offers to send, step goal, daily scripture / motivation, and countdown to 110 lbs.</p>
     <div class="chips">
-      <span class="chip">Week switcher</span>
-      <span class="chip">Auto-adaptive plan</span>
-      <span class="chip">Weight goal tracker</span>
-      <span class="chip">Running progression</span>
-      <span class="chip">Business command center</span>
-      <span class="chip">iPhone-style layout</span>
+      <span class="chip">4AM command screen</span><span class="chip">Weight goal tracker</span><span class="chip">Running progression</span><span class="chip">Business dashboard</span><span class="chip">Auto-adaptive plan</span>
     </div>
   </div>
 
-  <div id="dashboard" class="tab active">
+  <div id="morning" class="tab active">
     <div class="grid">
-      <div class="card">
-        <div class="section-title">
-          <h2>Daily Command Center</h2>
-          <div class="tiny muted" id="todayDate"></div>
+      <div class="card morning">
+        <div class="section-title"><h2>4AM Morning Command Screen</h2><div class="tiny muted" id="todayDate"></div></div>
+        <div class="row4">
+          <div class="metric"><div class="label">Selected week</div><div class="value" id="selectedWeek">3</div></div>
+          <div class="metric"><div class="label">Displayed plan week</div><div class="value" id="displayWeek">3</div></div>
+          <div class="metric"><div class="label">Countdown to 110</div><div class="value" id="countdown110">—</div></div>
+          <div class="metric"><div class="label">Step goal</div><div class="value" id="stepGoal">10,000</div></div>
         </div>
-        <div class="row">
-          <div>
-            <h3 id="todayWorkoutTitle">Today's Workout</h3>
-            <div id="todayWorkout"></div>
-          </div>
-          <div>
-            <h3>Today's Business Focus</h3>
-            <ul>
-              <li>Make calls</li>
-              <li>Send offers</li>
-              <li>Move contracts forward</li>
-              <li>Track solds and revenue</li>
-            </ul>
-            <div class="stack" style="margin-top:12px">
-              <button class="btn secondary" onclick="switchTab('plan')">Open plan</button>
-              <button class="btn" onclick="switchTab('business')">Open business tracker</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row4">
-        <div class="metric"><div class="label">Selected week</div><div class="value" id="selectedWeek">3</div></div>
-        <div class="metric"><div class="label">Displayed plan week</div><div class="value" id="displayWeek">3</div></div>
-        <div class="metric"><div class="label">Coach decision</div><div class="value" id="coachDecision">Stay</div></div>
-        <div class="metric"><div class="label">Coach suggestion</div><div class="value" id="coachSuggestion">Week 3</div></div>
       </div>
 
       <div class="row">
         <div class="card">
-          <h2>Weight Goal</h2>
-          <p class="muted">140 lbs → 110 lbs by Week 8</p>
-          <div class="progress"><div id="weightGoalBar" class="bar pinkbar" style="width:0%"></div></div>
-          <div class="tiny muted" style="margin-top:8px" id="weightGoalText">No weight logged yet.</div>
+          <h2 id="todayWorkoutTitle">Today's Workout</h2>
+          <div id="todayWorkout"></div>
         </div>
         <div class="card">
-          <h2>Running Goal</h2>
-          <p class="muted">11:00 mile → 8:00 mile by Week 8</p>
-          <div class="progress"><div id="runGoalBar" class="bar greenbar" style="width:0%"></div></div>
-          <div class="tiny muted" style="margin-top:8px" id="runGoalText">No mile time logged yet.</div>
+          <h2>Today's Business Targets</h2>
+          <div class="row">
+            <div class="metric"><div class="label">Calls to make</div><div class="value" id="callsTarget">10</div></div>
+            <div class="metric"><div class="label">Offers to send</div><div class="value" id="offersTarget">3</div></div>
+          </div>
+          <div class="stack" style="margin-top:12px">
+            <label>Adjust call target</label><input id="callsTargetInput" type="number" min="0" value="10">
+            <label>Adjust offer target</label><input id="offersTargetInput" type="number" min="0" value="3">
+            <button class="btn" onclick="saveMorningTargets()">Save morning targets</button>
+          </div>
         </div>
       </div>
 
-      <div class="row4">
-        <div class="metric"><div class="label">Calls</div><div class="value" id="dashCalls">0</div></div>
-        <div class="metric"><div class="label">Offers</div><div class="value" id="dashOffers">0</div></div>
-        <div class="metric"><div class="label">Contracts</div><div class="value" id="dashContracts">0</div></div>
-        <div class="metric"><div class="label">Solds</div><div class="value" id="dashSolds">0</div></div>
+      <div class="row">
+        <div class="card">
+          <h2>Daily Scripture / Motivation</h2>
+          <div class="scripture" id="dailyScripture"></div>
+        </div>
+        <div class="card">
+          <h2>Quick Launch</h2>
+          <div class="stack">
+            <button class="btn secondary" onclick="switchTab('plan')">Open workout plan</button>
+            <button class="btn secondary" onclick="switchTab('business')">Open business tracker</button>
+            <button class="btn secondary" onclick="switchTab('tracker')">Open daily check-in</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -194,47 +100,38 @@
     <div class="grid">
       <div class="card">
         <h2>Week Control</h2>
-        <div class="row3">
+        <div class="row">
           <button class="btn secondary" onclick="changeWeek(-1)">◀ Previous</button>
           <select id="weekPicker" onchange="setCurrentWeek(Number(this.value))"></select>
-          <button class="btn secondary" onclick="changeWeek(1)">Next ▶</button>
         </div>
-        <div class="stack" style="margin-top:10px" id="coachNotes"></div>
+        <div class="row4" style="margin-top:10px">
+          <div class="metric"><div class="label">Selected week</div><div class="value" id="goalWeek">3</div></div>
+          <div class="metric"><div class="label">Coach suggestion</div><div class="value" id="weekSuggestion">Week 3</div></div>
+          <div class="metric"><div class="label">Decision</div><div class="value" id="coachDecision">Stay</div></div>
+          <div class="metric"><div class="label">Displayed week</div><div class="value" id="planDisplayWeek">3</div></div>
+        </div>
       </div>
-
-      <div class="card">
-        <h2>Daily Plan</h2>
-        <div class="day-grid" id="dayButtons"></div>
-      </div>
-
-      <div class="card">
-        <h2 id="planTitle">Monday</h2>
-        <div id="planContent"></div>
-      </div>
+      <div class="card"><h2>Coach Notes</h2><div id="coachNotes" class="stack"></div></div>
+      <div class="card"><h2>Daily Plan</h2><div class="day-grid" id="dayButtons"></div></div>
+      <div class="card"><h2 id="planTitle">Monday</h2><div id="planContent"></div></div>
     </div>
   </div>
 
   <div id="progress" class="tab">
     <div class="grid">
       <div class="row">
-        <div class="card">
-          <h2>Weight Trend</h2>
-          <canvas id="weightChart" width="900" height="260"></canvas>
-        </div>
-        <div class="card">
-          <h2>Mile Time Trend</h2>
-          <canvas id="mileChart" width="900" height="260"></canvas>
-        </div>
+        <div class="card"><h2>Weight Trend</h2><canvas id="weightChart" width="900" height="260"></canvas></div>
+        <div class="card"><h2>Mile Time Trend</h2><canvas id="mileChart" width="900" height="260"></canvas></div>
       </div>
-      <div class="row3">
+      <div class="row4">
         <div class="metric"><div class="label">Current streak</div><div class="value" id="streakNow">0</div></div>
         <div class="metric"><div class="label">Best streak</div><div class="value" id="streakBest">0</div></div>
         <div class="metric"><div class="label">Completed workouts</div><div class="value" id="streakTotal">0</div></div>
+        <div class="metric"><div class="label">Business calls</div><div class="value" id="dashCalls">0</div></div>
       </div>
-      <div class="row3">
-        <div class="metric"><div class="label">Waist change</div><div class="value" id="waistDelta">—</div></div>
-        <div class="metric"><div class="label">Glute change</div><div class="value" id="gluteDelta">—</div></div>
-        <div class="metric"><div class="label">Avg thigh change</div><div class="value" id="thighDelta">—</div></div>
+      <div class="row">
+        <div class="card"><h2>Weight Goal</h2><p class="muted">140 lbs → 110 lbs by Week 8</p><div class="progress"><div id="weightGoalBar" class="bar pinkbar" style="width:0%"></div></div><div class="tiny muted" style="margin-top:8px" id="weightGoalText">No weight logged yet.</div></div>
+        <div class="card"><h2>Running Goal</h2><p class="muted">11:00 mile → 8:00 mile by Week 8</p><div class="progress"><div id="runGoalBar" class="bar greenbar" style="width:0%"></div></div><div class="tiny muted" style="margin-top:8px" id="runGoalText">No mile time logged yet.</div></div>
       </div>
     </div>
   </div>
@@ -265,29 +162,17 @@
             <button class="btn green" onclick="saveCheckin()">Save Check-In</button>
           </div>
         </div>
-
         <div class="card">
           <h2>Goals Trackers</h2>
           <div class="stack">
-            <div class="row">
-              <div><label>Weight week</label><select id="weightWeek"></select></div>
-              <div><label>Weight</label><input id="weightValue" type="number" step="0.1"></div>
-            </div>
+            <div class="row"><div><label>Weight week</label><select id="weightWeek"></select></div><div><label>Weight</label><input id="weightValue" type="number" step="0.1"></div></div>
             <button class="btn" onclick="saveWeightGoal()">Save Weight</button>
-
-            <div class="row">
-              <div><label>Run week</label><select id="runWeek"></select></div>
-              <div><label>Mile time (mm:ss)</label><input id="mileTimeGoal" type="text" placeholder="10:30"></div>
-            </div>
+            <div class="row"><div><label>Run week</label><select id="runWeek"></select></div><div><label>Mile time (mm:ss)</label><input id="mileTimeGoal" type="text" placeholder="10:30"></div></div>
             <button class="btn green" onclick="saveRunGoal()">Save Mile Time</button>
           </div>
         </div>
       </div>
-
-      <div class="card">
-        <h2>Saved Check-Ins</h2>
-        <div id="checkinList" class="stack"></div>
-      </div>
+      <div class="card"><h2>Saved Check-Ins</h2><div id="checkinList" class="stack"></div></div>
     </div>
   </div>
 
@@ -299,72 +184,35 @@
         <div class="metric"><div class="label">Contracts</div><div class="value" id="bizContracts">0</div></div>
         <div class="metric"><div class="label">Solds</div><div class="value" id="bizSolds">0</div></div>
       </div>
-
       <div class="row">
         <div class="card">
           <h2>Business Activity Entry</h2>
           <div class="stack">
-            <div class="row">
-              <div><label>Week</label><select id="bizWeek"></select></div>
-              <div><label>Date / label</label><input id="bizDate" type="text" placeholder="Today"></div>
-            </div>
-            <div class="row">
-              <div><label>Calls</label><input id="calls" type="number" min="0" value="0"></div>
-              <div><label>Offers</label><input id="offers" type="number" min="0" value="0"></div>
-            </div>
-            <div class="row">
-              <div><label>Contracts</label><input id="contracts" type="number" min="0" value="0"></div>
-              <div><label>Solds</label><input id="solds" type="number" min="0" value="0"></div>
-            </div>
+            <div class="row"><div><label>Week</label><select id="bizWeek"></select></div><div><label>Date / label</label><input id="bizDate" type="text" placeholder="Today"></div></div>
+            <div class="row"><div><label>Calls</label><input id="calls" type="number" min="0" value="0"></div><div><label>Offers</label><input id="offers" type="number" min="0" value="0"></div></div>
+            <div class="row"><div><label>Contracts</label><input id="contracts" type="number" min="0" value="0"></div><div><label>Solds</label><input id="solds" type="number" min="0" value="0"></div></div>
             <div><label>Notes</label><textarea id="bizNotes"></textarea></div>
             <button class="btn green" onclick="saveBiz()">Save Business Entry</button>
           </div>
         </div>
-
-        <div class="card">
-          <h2>Weekly Business Scoreboard</h2>
-          <div id="bizWeekTable"></div>
-        </div>
+        <div class="card"><h2>Weekly Business Scoreboard</h2><div id="bizWeekTable"></div></div>
       </div>
-
-      <div class="card">
-        <h2>Saved Business Entries</h2>
-        <div id="bizList" class="stack"></div>
-      </div>
+      <div class="card"><h2>Saved Business Entries</h2><div id="bizList" class="stack"></div></div>
     </div>
   </div>
 
   <div id="meals" class="tab">
     <div class="grid">
       <div class="row">
-        <div class="card">
-          <h2>Meal Plan</h2>
-          <ul>
-            <li>Breakfast: eggs, potato, veggies, avocado</li>
-            <li>Lunch: tuna or chicken, fruit, potatoes or crackers</li>
-            <li>Post-workout: protein shake + fruit</li>
-            <li>Dinner: protein + veggies + moderate carb</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Grocery List</h2>
-          <ul>
-            <li>Eggs</li>
-            <li>Chicken or tuna</li>
-            <li>Potatoes</li>
-            <li>Kale / spinach / peppers / tomatoes</li>
-            <li>Avocados</li>
-            <li>Bananas / berries / fruit</li>
-            <li>Protein powder + PB fit + almond milk</li>
-          </ul>
-        </div>
+        <div class="card"><h2>Meal Plan</h2><ul><li>Breakfast: eggs, potato, veggies, avocado</li><li>Lunch: tuna or chicken, fruit, potatoes or crackers</li><li>Post-workout: protein shake + fruit</li><li>Dinner: protein + veggies + moderate carb</li></ul></div>
+        <div class="card"><h2>Grocery List</h2><ul><li>Eggs</li><li>Chicken or tuna</li><li>Potatoes</li><li>Kale / spinach / peppers / tomatoes</li><li>Avocados</li><li>Bananas / berries / fruit</li><li>Protein powder + PB fit + almond milk</li></ul></div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="tabs">
-  <button class="tabbtn active" onclick="switchTab('dashboard', this)">Home</button>
+  <button class="tabbtn active" onclick="switchTab('morning', this)">4AM</button>
   <button class="tabbtn" onclick="switchTab('plan', this)">Plan</button>
   <button class="tabbtn" onclick="switchTab('progress', this)">Progress</button>
   <button class="tabbtn" onclick="switchTab('tracker', this)">Tracker</button>
@@ -373,15 +221,23 @@
 </div>
 
 <script>
-const progression = [
-  {week:3, weight:"20 lb", run:"6.0 mph", pace:"10:00"},
-  {week:4, weight:"20–25 lb", run:"6.3 mph", pace:"9:31"},
-  {week:5, weight:"25 lb", run:"6.7 mph", pace:"8:57"},
-  {week:6, weight:"25–30 lb", run:"7.0 mph", pace:"8:34"},
-  {week:7, weight:"30 lb", run:"7.3 mph", pace:"8:13"},
-  {week:8, weight:"30–35 lb", run:"7.5 mph", pace:"8:00"}
+const scriptures = [
+  "Be strong and courageous. Do not be afraid. — Joshua 1:9",
+  "I can do all things through Christ who strengthens me. — Philippians 4:13",
+  "Commit to the Lord whatever you do, and He will establish your plans. — Proverbs 16:3",
+  "Let us not become weary in doing good. — Galatians 6:9",
+  "Those who hope in the Lord will renew their strength. — Isaiah 40:31",
+  "The Lord will fight for you; you need only to be still. — Exodus 14:14",
+  "With God all things are possible. — Matthew 19:26"
 ];
-
+const progression = [
+  {week:3, weight:"20 lb", run:"6.0 mph"},
+  {week:4, weight:"20–25 lb", run:"6.3 mph"},
+  {week:5, weight:"25 lb", run:"6.7 mph"},
+  {week:6, weight:"25–30 lb", run:"7.0 mph"},
+  {week:7, weight:"30 lb", run:"7.3 mph"},
+  {week:8, weight:"30–35 lb", run:"7.5 mph"}
+];
 const planBase = {
   "Monday – Lower Body + Glutes + Core": ["Warm-up: 10 squats, 10 glute bridges, 10 calf raises, 10 hip circles","Plyometrics: squat jumps – 3 x 8; lateral skater hops – 3 x 10 each side","Step-ups – 12 each leg","Bulgarian split squats – 10 each leg","Glute bridges – 15","Sumo squats – 12 reps","Side lunges – 10 each side","Core: reverse crunch 20, bicycle crunch 20, plank 30 sec (3 rounds)","Cardio: incline walk 25 min – 4.0 mph – incline 6–8%"],
   "Tuesday – Intervals + Upper Body": ["Intervals: 2 min walk / 2 min run for 45–60 minutes","Pushups – 12","Dumbbell rows – 12 reps","Shoulder press – 10 reps","Bicep curls – 12 reps","Tricep kickbacks – 12 reps","Core: Russian twists 20, leg raises 20, plank 30 sec (3 rounds)"],
@@ -391,7 +247,6 @@ const planBase = {
   "Saturday – Endurance Intervals": ["Optional plyo finisher: 4 x 20 seconds quick feet or line hops","Intervals: 2 min walk / 2 min run for 60 minutes","Core: bicycle crunch 20, leg raises 20, plank 30 sec (3 rounds)","Cooldown walk 5 minutes at 3.0 mph"],
   "Sunday – Recovery + Mobility": ["Incline walk 40 min – 4.0 mph – incline 6–8%","Stretch: hip flexor, hamstring, glute, calf (30 sec each)","Optional runner reset"]
 };
-
 function getArr(key){ return JSON.parse(localStorage.getItem(key) || "[]"); }
 function setArr(key,val){ localStorage.setItem(key, JSON.stringify(val)); }
 function getCurrentWeek(){ return Math.min(8, Math.max(3, Number(localStorage.getItem("currentWeek") || 3))); }
@@ -399,440 +254,31 @@ function setCurrentWeek(v){ localStorage.setItem("currentWeek", String(v)); rend
 function changeWeek(delta){ setCurrentWeek(Math.min(8, Math.max(3, getCurrentWeek()+delta))); }
 function currentDayName(){ return ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][new Date().getDay()]; }
 function mapDayToPlan(day){ return Object.keys(planBase).find(k => k.startsWith(day)) || Object.keys(planBase)[0]; }
-
-function switchTab(id, btn=null){
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tabbtn').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  if(btn) btn.classList.add('active');
-  else {
-    const labels = {dashboard:0, plan:1, progress:2, tracker:3, business:4, meals:5};
-    const buttons = document.querySelectorAll('.tabbtn');
-    if(buttons[labels[id]]) buttons[labels[id]].classList.add('active');
-  }
-  if(id === 'progress'){ drawCharts(); updateStreaks(); updateDeltas(); }
-  if(id === 'business'){ renderBiz(); }
-}
-
-function mmssToSeconds(v){
-  if(!v || !String(v).includes(':')) return null;
-  const p = String(v).split(':').map(Number);
-  if(p.some(isNaN)) return null;
-  return p[0]*60 + p[1];
-}
-function secondsToMMSS(sec){
-  if(sec == null || !isFinite(sec)) return "";
-  const m = Math.floor(sec/60);
-  const s = Math.round(sec%60).toString().padStart(2,'0');
-  return `${m}:${s}`;
-}
-
-function computeCoach(){
-  const currentWeek = getCurrentWeek();
-  const checkins = getArr("checkins").filter(x => Number(x.week) === currentWeek);
-  const complete = checkins.filter(x => x.done === 'Yes').length;
-  const partial = checkins.filter(x => x.done === 'Partial').length;
-  const avgEnergy = checkins.length ? checkins.reduce((a,b)=>a+(Number(b.energy)||0),0)/checkins.length : null;
-  const avgSoreness = checkins.length ? checkins.reduce((a,b)=>a+(Number(b.soreness)||0),0)/checkins.length : null;
-  const goalRuns = getArr("goalRuns").filter(x => Number(x.week) <= currentWeek).sort((a,b)=>a.week-b.week);
-  const latestMile = goalRuns.length ? mmssToSeconds(goalRuns[goalRuns.length-1].time) : null;
-
-  let decision = "Stay";
-  let suggestedWeek = currentWeek;
-  let notes = [];
-
-  if(checkins.length === 0){
-    notes.push({cls:'warn', text:'No check-ins saved this week yet, so the coach is conservative.'});
-    return {decision, suggestedWeek, notes};
-  }
-
-  if(complete >= 5 && (avgEnergy ?? 0) >= 7 && (avgSoreness ?? 10) <= 5){
-    decision = "Advance";
-    suggestedWeek = Math.min(8, currentWeek + 1);
-    notes.push({cls:'good', text:`You completed ${complete} workouts and recovery looks solid.`});
-  } else if(complete <= 2 && (avgEnergy ?? 10) <= 4){
-    decision = "Ease Back";
-    suggestedWeek = Math.max(3, currentWeek - 1);
-    notes.push({cls:'bad', text:'Low completion plus low energy suggests easing back.'});
-  } else if((avgSoreness ?? 0) >= 8){
-    decision = "Ease Back";
-    suggestedWeek = Math.max(3, currentWeek - 1);
-    notes.push({cls:'bad', text:'High soreness suggests you need a lighter displayed week.'});
-  } else {
-    decision = "Stay";
-    suggestedWeek = currentWeek;
-    notes.push({cls:'warn', text:'Stay the course and let the current training settle in.'});
-  }
-
-  if(latestMile){
-    if(latestMile <= 480){
-      decision = "Advance";
-      suggestedWeek = 8;
-      notes.push({cls:'good', text:'Your latest mile time is already at or better than the 8:00 goal.'});
-    } else if(latestMile <= 510 && currentWeek < 7){
-      suggestedWeek = Math.max(suggestedWeek, currentWeek + 1);
-      notes.push({cls:'good', text:'Your mile time suggests you are tracking ahead of the base plan.'});
-    }
-  } else {
-    notes.push({cls:'warn', text:'No mile time saved yet. Add one for smarter running adjustments.'});
-  }
-
-  if(partial >= 2){
-    notes.push({cls:'warn', text:'Multiple partial workouts suggest keeping progress conservative.'});
-  }
-
-  notes.push({cls:'', text:`Average energy: ${avgEnergy ? avgEnergy.toFixed(1) : '—'} / Average soreness: ${avgSoreness ? avgSoreness.toFixed(1) : '—'}`});
-  return {decision, suggestedWeek, notes};
-}
-
-function displayedWeek(){
-  const currentWeek = getCurrentWeek();
-  const coach = computeCoach();
-  if(coach.decision === "Advance") return Math.min(8, currentWeek + 1);
-  if(coach.decision === "Ease Back") return Math.max(3, currentWeek - 1);
-  return currentWeek;
-}
-
-function getWeekTargets(week){
-  return progression.find(p => p.week === week) || progression[0];
-}
-
-function getPlanForDisplayedWeek(){
-  const week = displayedWeek();
-  const target = getWeekTargets(week);
-  const weightText = target.weight;
-  const runText = target.run;
-  const runIncline = week >= 6 ? "2–3% incline" : "2% incline";
-  const out = {};
-  Object.entries(planBase).forEach(([day, items]) => {
-    out[day] = items.map(item => {
-      let x = item;
-      if(x.includes("Step-ups")) x += ` (${weightText})`;
-      if(x.includes("Bulgarian split squats")) x += ` (${weightText})`;
-      if(x.includes("Dumbbell rows")) x += ` (${weightText})`;
-      if(x.includes("Shoulder press")) x += ` (${weightText})`;
-      if(x.includes("Bicep curls")) x += ` (${weightText})`;
-      if(x.includes("Bent over rows")) x += ` (${weightText})`;
-      if(x === "Glute bridges – 15") x += ` (bodyweight or add ${weightText})`;
-      if(x.startsWith("Hip thrusts")) x += ` (add ${weightText} if possible)`;
-      if(x.startsWith("Intervals: 2 min walk / 2 min run")) x = `Intervals: 2 min walk (3.6 mph) / 2 min run (${runText} at ${runIncline}) for ${day.startsWith("Saturday") ? "60" : "45–60"} minutes`;
-      return x;
-    });
-  });
-  return {week, plan: out};
-}
-
-function populateSelectors(){
-  const options = progression.map(p => `<option value="${p.week}" ${p.week===getCurrentWeek()?'selected':''}>Week ${p.week}</option>`).join('');
-  ["weekPicker","checkWeek","weightWeek","runWeek","bizWeek"].forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.innerHTML = options;
-  });
-  document.getElementById("checkDay").innerHTML = Object.keys(planBase).map(day => `<option value="${day}" ${day.startsWith(currentDayName())?'selected':''}>${day.split(" – ")[0]}</option>`).join('');
-}
-
-function initDayButtons(){
-  const wrap = document.getElementById("dayButtons");
-  wrap.innerHTML = "";
-  Object.keys(planBase).forEach(day => {
-    const b = document.createElement("button");
-    b.className = "daybtn";
-    b.textContent = day.split(" – ")[0];
-    b.onclick = () => selectDay(day, b);
-    wrap.appendChild(b);
-  });
-  selectDay(mapDayToPlan(currentDayName()));
-}
-
-function selectDay(day, btn=null){
-  const info = getPlanForDisplayedWeek();
-  document.querySelectorAll('.daybtn').forEach(x => x.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  else {
-    const i = Object.keys(planBase).indexOf(day);
-    const bs = document.querySelectorAll('.daybtn');
-    if(bs[i]) bs[i].classList.add('active');
-  }
-  document.getElementById("planTitle").textContent = `${day} — Displaying Week ${info.week}`;
-  document.getElementById("planContent").innerHTML = `<ul>${info.plan[day].map(x => `<li>${x}</li>`).join('')}</ul>`;
-}
-
-function updateCoachUI(){
-  const currentWeek = getCurrentWeek();
-  const coach = computeCoach();
-  document.getElementById("selectedWeek").textContent = currentWeek;
-  document.getElementById("displayWeek").textContent = displayedWeek();
-  document.getElementById("coachDecision").textContent = coach.decision;
-  document.getElementById("coachSuggestion").textContent = `Week ${coach.suggestedWeek}`;
-  document.getElementById("goalWeek").textContent = currentWeek;
-  document.getElementById("weekSuggestion").textContent = `Week ${coach.suggestedWeek}`;
-
-  document.getElementById("coachNotes").innerHTML = coach.notes.map(n => `<div class="note ${n.cls}">${n.text}</div>`).join("");
-
-  document.getElementById("decisionBox").className =
-    "note " + (coach.decision === "Advance" ? "status-advance" : coach.decision === "Ease Back" ? "status-ease" : "status-stay");
-}
-
-function saveCheckin(){
-  const item = {
-    week:Number(checkWeek.value),
-    day:checkDay.value,
-    energy:energy.value,
-    soreness:soreness.value,
-    steps:steps.value,
-    water:water.value,
-    done:done.value,
-    mood:mood.value,
-    notes:notes.value,
-    ts:new Date().toLocaleString()
-  };
-  const arr = getArr("checkins");
-  arr.unshift(item);
-  setArr("checkins", arr);
-  renderCheckins();
-  updateCoachUI();
-  updateStreaks();
-  selectDay(mapDayToPlan(currentDayName()));
-  alert("Check-in saved.");
-}
-
-function renderCheckins(){
-  const arr = getArr("checkins");
-  document.getElementById("checkinList").innerHTML = arr.length ? arr.map(x => `
-    <div class="note">
-      <div><b>Week ${x.week}</b> • ${x.day.split(" – ")[0]} • ${x.done}</div>
-      <div class="tiny muted">${x.ts}</div>
-      <div class="tiny">Energy: ${x.energy||"-"} | Soreness: ${x.soreness||"-"} | Steps: ${x.steps||"-"} | Water: ${x.water||"-"} oz</div>
-      <div>${x.notes||""}</div>
-    </div>`).join('') : '<p class="muted">No check-ins yet.</p>';
-}
-
-function saveWeightGoal(){
-  const item = {week:Number(weightWeek.value), weight:Number(weightValue.value||0)};
-  let arr = getArr("goalWeights").filter(x => Number(x.week) !== item.week);
-  arr.push(item);
-  arr.sort((a,b)=>a.week-b.week);
-  setArr("goalWeights", arr);
-  renderGoalBars();
-  drawCharts();
-  alert("Weight saved.");
-}
-
-function saveRunGoal(){
-  const item = {week:Number(runWeek.value), time:mileTimeGoal.value};
-  let arr = getArr("goalRuns").filter(x => Number(x.week) !== item.week);
-  arr.push(item);
-  arr.sort((a,b)=>a.week-b.week);
-  setArr("goalRuns", arr);
-  renderGoalBars();
-  drawCharts();
-  updateCoachUI();
-  alert("Mile time saved.");
-}
-
-function renderGoalBars(){
-  const weights = getArr("goalWeights");
-  if(weights.length){
-    const latest = weights[weights.length-1].weight;
-    const progress = Math.max(0, Math.min(100, ((140 - latest) / (140 - 110)) * 100));
-    document.getElementById("weightGoalBar").style.width = progress + "%";
-    document.getElementById("weightGoalText").textContent = `Latest weight: ${latest} lbs • ${progress.toFixed(0)}% toward goal`;
-  } else {
-    document.getElementById("weightGoalBar").style.width = "0%";
-    document.getElementById("weightGoalText").textContent = "No weight logged yet.";
-  }
-
-  const runs = getArr("goalRuns");
-  if(runs.length){
-    const latestSec = mmssToSeconds(runs[runs.length-1].time);
-    const progress = latestSec ? Math.max(0, Math.min(100, ((660 - latestSec) / (660 - 480)) * 100)) : 0;
-    document.getElementById("runGoalBar").style.width = progress + "%";
-    document.getElementById("runGoalText").textContent = `Latest mile: ${runs[runs.length-1].time} • ${progress.toFixed(0)}% toward goal`;
-  } else {
-    document.getElementById("runGoalBar").style.width = "0%";
-    document.getElementById("runGoalText").textContent = "No mile time logged yet.";
-  }
-}
-
-function drawLineChart(canvasId, points, color, formatter){
-  const canvas = document.getElementById(canvasId);
-  const ctx = canvas.getContext('2d');
-  const w = canvas.width, h = canvas.height;
-  ctx.clearRect(0,0,w,h);
-  ctx.fillStyle = '#0f141b';
-  ctx.fillRect(0,0,w,h);
-
-  const m = {l:50,r:16,t:16,b:32};
-  ctx.strokeStyle = '#2a313c';
-  ctx.lineWidth = 1;
-  for(let i=0;i<5;i++){
-    const y = m.t + i*(h-m.t-m.b)/4;
-    ctx.beginPath(); ctx.moveTo(m.l,y); ctx.lineTo(w-m.r,y); ctx.stroke();
-  }
-  if(points.length === 0){
-    ctx.fillStyle = '#9aa4b2';
-    ctx.font = '16px sans-serif';
-    ctx.fillText('No data yet', w/2 - 40, h/2);
-    return;
-  }
-  const xs = points.map(p=>p.x), ys = points.map(p=>p.y);
-  const minX = Math.min(...xs), maxX = Math.max(...xs);
-  const minY = Math.min(...ys), maxY = Math.max(...ys);
-  const pad = (maxY - minY || 1) * 0.15;
-  const lo = minY - pad, hi = maxY + pad;
-
-  const cx = x => m.l + ((x-minX)/(maxX-minX || 1))*(w-m.l-m.r);
-  const cy = y => h-m.b - ((y-lo)/(hi-lo || 1))*(h-m.t-m.b);
-
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  points.forEach((p,i)=>{ if(i===0) ctx.moveTo(cx(p.x), cy(p.y)); else ctx.lineTo(cx(p.x), cy(p.y)); });
-  ctx.stroke();
-
-  ctx.fillStyle = color;
-  points.forEach(p => { ctx.beginPath(); ctx.arc(cx(p.x), cy(p.y), 4, 0, Math.PI*2); ctx.fill(); });
-
-  ctx.fillStyle = '#dbe3ee';
-  ctx.font = '12px sans-serif';
-  points.forEach(p => ctx.fillText('W'+p.x, cx(p.x)-10, h-10));
-
-  ctx.fillStyle = '#9aa4b2';
-  ctx.fillText(formatter(maxY), 8, m.t+4);
-  ctx.fillText(formatter(minY), 8, h-m.b);
-}
-
-function drawCharts(){
-  const weights = getArr("goalWeights").map(x => ({x:Number(x.week), y:Number(x.weight)}));
-  drawLineChart('weightChart', weights, '#f472b6', v => Number(v).toFixed(0));
-
-  const runs = getArr("goalRuns").map(x => ({x:Number(x.week), y:mmssToSeconds(x.time)})).filter(x => x.y);
-  drawLineChart('mileChart', runs, '#22c55e', v => secondsToMMSS(v));
-}
-
-function updateDeltas(){
-  const m = getArr("metrics");
-  if(m.length < 2){
-    ['waistDelta','gluteDelta','thighDelta'].forEach(id => document.getElementById(id).textContent = '—');
-    return;
-  }
-  const first = m[0], last = m[m.length-1];
-  const avg1 = ((Number(first.rthigh||0)+Number(first.lthigh||0))/2);
-  const avg2 = ((Number(last.rthigh||0)+Number(last.lthigh||0))/2);
-  const fmt = d => (d > 0 ? '+' : '') + d.toFixed(1);
-  document.getElementById('waistDelta').textContent = fmt((last.waist||0) - (first.waist||0));
-  document.getElementById('gluteDelta').textContent = fmt((last.glutes||0) - (first.glutes||0));
-  document.getElementById('thighDelta').textContent = fmt(avg2 - avg1);
-}
-
-function updateStreaks(){
-  const arr = getArr("checkins").filter(x => x.done === 'Yes');
-  document.getElementById('streakTotal').textContent = arr.length;
-  const keys = {};
-  arr.forEach(x => keys[`${x.week}-${x.day}`] = true);
-  const ordered = [];
-  progression.forEach(p => Object.keys(planBase).forEach(day => ordered.push(`${p.week}-${day}`)));
-
-  let best = 0, run = 0;
-  ordered.forEach(k => { if(keys[k]){ run++; best=Math.max(best,run); } else run=0; });
-
-  let current = 0;
-  for(let i=ordered.length-1;i>=0;i--){
-    if(keys[ordered[i]]) current++;
-    else if(current>0) break;
-  }
-  document.getElementById('streakNow').textContent = current;
-  document.getElementById('streakBest').textContent = best;
-}
-
-function saveBiz(){
-  const item = {
-    week:Number(bizWeek.value),
-    date:bizDate.value || new Date().toLocaleDateString(),
-    calls:Number(calls.value||0),
-    offers:Number(offers.value||0),
-    contracts:Number(contracts.value||0),
-    solds:Number(solds.value||0),
-    notes:bizNotes.value || ""
-  };
-  const arr = getArr("business");
-  arr.unshift(item);
-  setArr("business", arr);
-  renderBiz();
-  alert("Business entry saved.");
-}
-
-function renderBiz(){
-  const arr = getArr("business");
-  const totals = arr.reduce((a,b)=>({
-    calls:a.calls+(b.calls||0),
-    offers:a.offers+(b.offers||0),
-    contracts:a.contracts+(b.contracts||0),
-    solds:a.solds+(b.solds||0)
-  }), {calls:0,offers:0,contracts:0,solds:0});
-
-  document.getElementById("bizCalls").textContent = totals.calls;
-  document.getElementById("bizOffers").textContent = totals.offers;
-  document.getElementById("bizContracts").textContent = totals.contracts;
-  document.getElementById("bizSolds").textContent = totals.solds;
-
-  document.getElementById("dashCalls").textContent = totals.calls;
-  document.getElementById("dashOffers").textContent = totals.offers;
-  document.getElementById("dashContracts").textContent = totals.contracts;
-  document.getElementById("dashSolds").textContent = totals.solds;
-
-  const weekMap = {};
-  arr.forEach(x => {
-    if(!weekMap[x.week]) weekMap[x.week] = {calls:0,offers:0,contracts:0,solds:0};
-    weekMap[x.week].calls += x.calls||0;
-    weekMap[x.week].offers += x.offers||0;
-    weekMap[x.week].contracts += x.contracts||0;
-    weekMap[x.week].solds += x.solds||0;
-  });
-
-  const rows = progression.map(p => {
-    const w = weekMap[p.week] || {calls:0,offers:0,contracts:0,solds:0};
-    return `<tr><td>Week ${p.week}</td><td>${w.calls}</td><td>${w.offers}</td><td>${w.contracts}</td><td>${w.solds}</td></tr>`;
-  }).join('');
-
-  document.getElementById("bizWeekTable").innerHTML = `<table><thead><tr><th>Week</th><th>Calls</th><th>Offers</th><th>Contracts</th><th>Solds</th></tr></thead><tbody>${rows}</tbody></table>`;
-  document.getElementById("bizList").innerHTML = arr.length ? arr.map(x => `
-    <div class="note">
-      <div><b>Week ${x.week}</b> • ${x.date}</div>
-      <div class="tiny">Calls: ${x.calls} | Offers: ${x.offers} | Contracts: ${x.contracts} | Solds: ${x.solds}</div>
-      <div>${x.notes||""}</div>
-    </div>`).join('') : '<p class="muted">No business entries yet.</p>';
-}
-
-function renderTodayCommand(){
-  document.getElementById("todayDate").textContent = new Date().toLocaleDateString();
-  const title = mapDayToPlan(currentDayName());
-  const info = getPlanForDisplayedWeek();
-  document.getElementById("todayWorkoutTitle").textContent = title;
-  document.getElementById("todayWorkout").innerHTML = `<ul>${info.plan[title].map(x => `<li>${x}</li>`).join('')}</ul>`;
-}
-
-function renderDashboardTop(){
-  document.getElementById("selectedWeek").textContent = getCurrentWeek();
-  document.getElementById("displayWeek").textContent = displayedWeek();
-  const coach = computeCoach();
-  document.getElementById("coachDecision").textContent = coach.decision;
-  document.getElementById("coachSuggestion").textContent = `Week ${coach.suggestedWeek}`;
-}
-
-function renderAll(){
-  populateSelectors();
-  updateCoachUI();
-  initDayButtons();
-  renderCheckins();
-  renderGoalBars();
-  drawCharts();
-  updateDeltas();
-  updateStreaks();
-  renderBiz();
-  renderTodayCommand();
-  renderDashboardTop();
-}
+function switchTab(id, btn=null){ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); document.querySelectorAll('.tabbtn').forEach(b=>b.classList.remove('active')); document.getElementById(id).classList.add('active'); if(btn){btn.classList.add('active')} else {const map={morning:0,plan:1,progress:2,tracker:3,business:4,meals:5}; document.querySelectorAll('.tabbtn')[map[id]].classList.add('active');} if(id==='progress'){drawCharts(); updateStreaks();} if(id==='business'){renderBiz();}}
+function mmssToSeconds(v){ if(!v || !String(v).includes(':')) return null; const p=String(v).split(':').map(Number); if(p.some(isNaN)) return null; return p[0]*60+p[1]; }
+function secondsToMMSS(sec){ if(sec==null||!isFinite(sec)) return ""; const m=Math.floor(sec/60); const s=Math.round(sec%60).toString().padStart(2,'0'); return `${m}:${s}`; }
+function computeCoach(){ const currentWeek=getCurrentWeek(); const checkins=getArr("checkins").filter(x=>Number(x.week)===currentWeek); const complete=checkins.filter(x=>x.done==='Yes').length; const avgEnergy=checkins.length?checkins.reduce((a,b)=>a+(Number(b.energy)||0),0)/checkins.length:null; const avgSoreness=checkins.length?checkins.reduce((a,b)=>a+(Number(b.soreness)||0),0)/checkins.length:null; let decision="Stay", suggestedWeek=currentWeek, notes=[]; if(checkins.length===0){notes.push({cls:'warn', text:'No check-ins saved this week yet, so the coach is conservative.'}); return {decision,suggestedWeek,notes};} if(complete>=5 && (avgEnergy??0)>=7 && (avgSoreness??10)<=5){decision="Advance"; suggestedWeek=Math.min(8,currentWeek+1); notes.push({cls:'good', text:`You completed ${complete} workouts and recovery looks solid.`});} else if(complete<=2 || (avgSoreness??0)>=8){decision="Ease Back"; suggestedWeek=Math.max(3,currentWeek-1); notes.push({cls:'bad', text:'Low completion or high soreness suggests easing back.'});} else {notes.push({cls:'warn', text:'Stay the course and let the current training settle in.'});} return {decision,suggestedWeek,notes}; }
+function displayedWeek(){ const currentWeek=getCurrentWeek(); const coach=computeCoach(); if(coach.decision==='Advance') return Math.min(8,currentWeek+1); if(coach.decision==='Ease Back') return Math.max(3,currentWeek-1); return currentWeek; }
+function getPlanForDisplayedWeek(){ const week=displayedWeek(); const target=progression.find(p=>p.week===week)||progression[0]; const out={}; Object.entries(planBase).forEach(([day,items])=>{ out[day]=items.map(item=>{ let x=item; if(x.includes("Step-ups")||x.includes("Bulgarian split squats")||x.includes("Dumbbell rows")||x.includes("Shoulder press")||x.includes("Bicep curls")||x.includes("Bent over rows")) x += ` (${target.weight})`; if(x==="Glute bridges – 15") x += ` (bodyweight or add ${target.weight})`; if(x.startsWith("Hip thrusts")) x += ` (add ${target.weight} if possible)`; if(x.startsWith("Intervals: 2 min walk / 2 min run")) x = `Intervals: 2 min walk (3.6 mph) / 2 min run (${target.run} at ${week>=6?'2–3% incline':'2% incline'}) for ${day.startsWith("Saturday")?'60':'45–60'} minutes`; return x; }); }); return {week,plan:out}; }
+function populateSelectors(){ const options=progression.map(p=>`<option value="${p.week}" ${p.week===getCurrentWeek()?'selected':''}>Week ${p.week}</option>`).join(''); ["weekPicker","checkWeek","weightWeek","runWeek","bizWeek"].forEach(id=>{const el=document.getElementById(id); if(el) el.innerHTML=options;}); document.getElementById("checkDay").innerHTML=Object.keys(planBase).map(day=>`<option value="${day}" ${day.startsWith(currentDayName())?'selected':''}>${day.split(" – ")[0]}</option>`).join(''); }
+function initDayButtons(){ const wrap=document.getElementById("dayButtons"); wrap.innerHTML=""; Object.keys(planBase).forEach(day=>{const b=document.createElement("button"); b.className="daybtn"; b.textContent=day.split(" – ")[0]; b.onclick=()=>selectDay(day,b); wrap.appendChild(b);}); selectDay(mapDayToPlan(currentDayName())); }
+function selectDay(day, btn=null){ const info=getPlanForDisplayedWeek(); document.querySelectorAll('.daybtn').forEach(x=>x.classList.remove('active')); if(btn) btn.classList.add('active'); else { const i=Object.keys(planBase).indexOf(day); const bs=document.querySelectorAll('.daybtn'); if(bs[i]) bs[i].classList.add('active'); } document.getElementById("planTitle").textContent=`${day} — Displaying Week ${info.week}`; document.getElementById("planContent").innerHTML=`<ul>${info.plan[day].map(x=>`<li>${x}</li>`).join('')}</ul>`; }
+function updateCoachUI(){ const currentWeek=getCurrentWeek(); const coach=computeCoach(); document.getElementById("selectedWeek").textContent=currentWeek; document.getElementById("displayWeek").textContent=displayedWeek(); document.getElementById("coachDecision").textContent=coach.decision; document.getElementById("coachSuggestion").textContent=`Week ${coach.suggestedWeek}`; document.getElementById("goalWeek").textContent=currentWeek; document.getElementById("weekSuggestion").textContent=`Week ${coach.suggestedWeek}`; document.getElementById("planDisplayWeek").textContent=displayedWeek(); document.getElementById("coachNotes").innerHTML=coach.notes.map(n=>`<div class="card">${n.text}</div>`).join(''); }
+function saveCheckin(){ const item={week:Number(checkWeek.value),day:checkDay.value,energy:energy.value,soreness:soreness.value,steps:steps.value,water:water.value,done:done.value,mood:mood.value,notes:notes.value,ts:new Date().toLocaleString()}; const arr=getArr("checkins"); arr.unshift(item); setArr("checkins",arr); renderCheckins(); updateCoachUI(); updateStreaks(); renderTodayCommand(); selectDay(mapDayToPlan(currentDayName())); alert("Check-in saved."); }
+function renderCheckins(){ const arr=getArr("checkins"); document.getElementById("checkinList").innerHTML=arr.length?arr.map(x=>`<div class="card"><div><b>Week ${x.week}</b> • ${x.day.split(" – ")[0]} • ${x.done}</div><div class="tiny muted">${x.ts}</div><div class="tiny">Energy: ${x.energy||"-"} | Soreness: ${x.soreness||"-"} | Steps: ${x.steps||"-"} | Water: ${x.water||"-"} oz</div><div>${x.notes||""}</div></div>`).join(''):'<p class="muted">No check-ins yet.</p>'; }
+function saveWeightGoal(){ const item={week:Number(weightWeek.value), weight:Number(weightValue.value||0)}; let arr=getArr("goalWeights").filter(x=>Number(x.week)!==item.week); arr.push(item); arr.sort((a,b)=>a.week-b.week); setArr("goalWeights",arr); renderGoalBars(); drawCharts(); renderTodayCommand(); alert("Weight saved."); }
+function saveRunGoal(){ const item={week:Number(runWeek.value), time:mileTimeGoal.value}; let arr=getArr("goalRuns").filter(x=>Number(x.week)!==item.week); arr.push(item); arr.sort((a,b)=>a.week-b.week); setArr("goalRuns",arr); renderGoalBars(); drawCharts(); alert("Mile time saved."); }
+function renderGoalBars(){ const weights=getArr("goalWeights"); if(weights.length){ const latest=weights[weights.length-1].weight; const progress=Math.max(0,Math.min(100,((140-latest)/(140-110))*100)); document.getElementById("weightGoalBar").style.width=progress+"%"; document.getElementById("weightGoalText").textContent=`Latest weight: ${latest} lbs • ${progress.toFixed(0)}% toward goal`; } else { document.getElementById("weightGoalBar").style.width="0%"; document.getElementById("weightGoalText").textContent="No weight logged yet."; } const runs=getArr("goalRuns"); if(runs.length){ const latestSec=mmssToSeconds(runs[runs.length-1].time); const progress=latestSec?Math.max(0,Math.min(100,((660-latestSec)/(660-480))*100)):0; document.getElementById("runGoalBar").style.width=progress+"%"; document.getElementById("runGoalText").textContent=`Latest mile: ${runs[runs.length-1].time} • ${progress.toFixed(0)}% toward goal`; } else { document.getElementById("runGoalBar").style.width="0%"; document.getElementById("runGoalText").textContent="No mile time logged yet."; } }
+function drawLineChart(canvasId, points, color, formatter){ const canvas=document.getElementById(canvasId), ctx=canvas.getContext('2d'); const w=canvas.width,h=canvas.height; ctx.clearRect(0,0,w,h); ctx.fillStyle='#0f141b'; ctx.fillRect(0,0,w,h); const m={l:50,r:16,t:16,b:32}; ctx.strokeStyle='#2a313c'; for(let i=0;i<5;i++){const y=m.t+i*(h-m.t-m.b)/4; ctx.beginPath(); ctx.moveTo(m.l,y); ctx.lineTo(w-m.r,y); ctx.stroke();} if(!points.length){ctx.fillStyle='#9aa4b2'; ctx.font='16px sans-serif'; ctx.fillText('No data yet', w/2-40, h/2); return;} const xs=points.map(p=>p.x), ys=points.map(p=>p.y), minX=Math.min(...xs), maxX=Math.max(...xs), minY=Math.min(...ys), maxY=Math.max(...ys), pad=(maxY-minY||1)*0.15, lo=minY-pad, hi=maxY+pad; const cx=x=>m.l+((x-minX)/(maxX-minX||1))*(w-m.l-m.r), cy=y=>h-m.b-((y-lo)/(hi-lo||1))*(h-m.t-m.b); ctx.strokeStyle=color; ctx.lineWidth=3; ctx.beginPath(); points.forEach((p,i)=>{if(i===0)ctx.moveTo(cx(p.x),cy(p.y)); else ctx.lineTo(cx(p.x),cy(p.y));}); ctx.stroke(); ctx.fillStyle=color; points.forEach(p=>{ctx.beginPath(); ctx.arc(cx(p.x),cy(p.y),4,0,Math.PI*2); ctx.fill();}); ctx.fillStyle='#dbe3ee'; ctx.font='12px sans-serif'; points.forEach(p=>ctx.fillText('W'+p.x,cx(p.x)-10,h-10)); ctx.fillStyle='#9aa4b2'; ctx.fillText(formatter(maxY),8,m.t+4); ctx.fillText(formatter(minY),8,h-m.b); }
+function drawCharts(){ const weights=getArr("goalWeights").map(x=>({x:Number(x.week), y:Number(x.weight)})); drawLineChart('weightChart',weights,'#f472b6',v=>Number(v).toFixed(0)); const runs=getArr("goalRuns").map(x=>({x:Number(x.week), y:mmssToSeconds(x.time)})).filter(x=>x.y); drawLineChart('mileChart',runs,'#22c55e',v=>secondsToMMSS(v)); }
+function updateDeltas(){ document.getElementById('dashCalls').textContent = (getArr("business").reduce((a,b)=>a+(b.calls||0),0)); }
+function updateStreaks(){ const arr=getArr("checkins").filter(x=>x.done==='Yes'); document.getElementById('streakTotal').textContent=arr.length; const keys={}; arr.forEach(x=>keys[`${x.week}-${x.day}`]=true); const ordered=[]; progression.forEach(p=>Object.keys(planBase).forEach(day=>ordered.push(`${p.week}-${day}`))); let best=0,run=0; ordered.forEach(k=>{ if(keys[k]){run++; best=Math.max(best,run);} else run=0; }); let current=0; for(let i=ordered.length-1;i>=0;i--){ if(keys[ordered[i]]) current++; else if(current>0) break; } document.getElementById('streakNow').textContent=current; document.getElementById('streakBest').textContent=best; }
+function saveBiz(){ const item={week:Number(bizWeek.value), date:bizDate.value||new Date().toLocaleDateString(), calls:Number(calls.value||0), offers:Number(offers.value||0), contracts:Number(contracts.value||0), solds:Number(solds.value||0), notes:bizNotes.value||""}; const arr=getArr("business"); arr.unshift(item); setArr("business",arr); renderBiz(); renderTodayCommand(); alert("Business entry saved."); }
+function renderBiz(){ const arr=getArr("business"); const totals=arr.reduce((a,b)=>({calls:a.calls+(b.calls||0), offers:a.offers+(b.offers||0), contracts:a.contracts+(b.contracts||0), solds:a.solds+(b.solds||0)}), {calls:0,offers:0,contracts:0,solds:0}); document.getElementById("bizCalls").textContent=totals.calls; document.getElementById("bizOffers").textContent=totals.offers; document.getElementById("bizContracts").textContent=totals.contracts; document.getElementById("bizSolds").textContent=totals.solds; document.getElementById("dashCalls").textContent=totals.calls; document.getElementById("dashOffers").textContent=totals.offers||0; document.getElementById("dashContracts").textContent=totals.contracts||0; document.getElementById("dashSolds").textContent=totals.solds||0; const weekMap={}; arr.forEach(x=>{ if(!weekMap[x.week]) weekMap[x.week]={calls:0,offers:0,contracts:0,solds:0}; weekMap[x.week].calls+=x.calls||0; weekMap[x.week].offers+=x.offers||0; weekMap[x.week].contracts+=x.contracts||0; weekMap[x.week].solds+=x.solds||0; }); const rows=progression.map(p=>{ const w=weekMap[p.week]||{calls:0,offers:0,contracts:0,solds:0}; return `<tr><td>Week ${p.week}</td><td>${w.calls}</td><td>${w.offers}</td><td>${w.contracts}</td><td>${w.solds}</td></tr>`; }).join(''); document.getElementById("bizWeekTable").innerHTML=`<table><thead><tr><th>Week</th><th>Calls</th><th>Offers</th><th>Contracts</th><th>Solds</th></tr></thead><tbody>${rows}</tbody></table>`; document.getElementById("bizList").innerHTML=arr.length?arr.map(x=>`<div class="card"><div><b>Week ${x.week}</b> • ${x.date}</div><div class="tiny">Calls: ${x.calls} | Offers: ${x.offers} | Contracts: ${x.contracts} | Solds: ${x.solds}</div><div>${x.notes||""}</div></div>`).join(''):'<p class="muted">No business entries yet.</p>'; }
+function saveMorningTargets(){ localStorage.setItem("callsTarget", String(callsTargetInput.value||10)); localStorage.setItem("offersTarget", String(offersTargetInput.value||3)); renderTodayCommand(); alert("Morning targets saved."); }
+function renderTodayCommand(){ document.getElementById("todayDate").textContent=new Date().toLocaleDateString(); const title=mapDayToPlan(currentDayName()); const info=getPlanForDisplayedWeek(); document.getElementById("todayWorkoutTitle").textContent=title; document.getElementById("todayWorkout").innerHTML=`<ul>${info.plan[title].map(x=>`<li>${x}</li>`).join('')}</ul>`; const callsTarget=localStorage.getItem("callsTarget")||"10"; const offersTarget=localStorage.getItem("offersTarget")||"3"; document.getElementById("callsTarget").textContent=callsTarget; document.getElementById("offersTarget").textContent=offersTarget; document.getElementById("callsTargetInput").value=callsTarget; document.getElementById("offersTargetInput").value=offersTarget; const weights=getArr("goalWeights"); document.getElementById("countdown110").textContent=weights.length?Math.max(0,weights[weights.length-1].weight-110).toFixed(1)+' lbs':'—'; document.getElementById("dailyScripture").textContent=scriptures[new Date().getDay()%scriptures.length]; }
+function renderDashboardTop(){ document.getElementById("selectedWeek").textContent=getCurrentWeek(); document.getElementById("displayWeek").textContent=displayedWeek(); const coach=computeCoach(); document.getElementById("coachDecision").textContent=coach.decision; document.getElementById("coachSuggestion").textContent=`Week ${coach.suggestedWeek}`; }
+function renderAll(){ populateSelectors(); updateCoachUI(); initDayButtons(); renderCheckins(); renderGoalBars(); drawCharts(); updateDeltas(); updateStreaks(); renderBiz(); renderTodayCommand(); renderDashboardTop(); }
 renderAll();
 </script>
 </body>
